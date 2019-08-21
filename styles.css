@@ -8,7 +8,6 @@ div#window {
   margin: auto auto;
 }
 
-
 div {
   border: black 1px solid;
 }
@@ -31,4 +30,27 @@ div#bottom {
   height: 465px;
   max-width: 1200px;
   margin:auto;
+}
+
+/* Bar Graph */
+#bar {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+#leftBar {
+  background-color: red;
+  width: 25%;
+  height: 100%;
+  float: left;
+  /* clear: left; */
+}
+#rightBar {
+  background-color: blue;
+  width: 75%;
+  height: 100%;
+  float: right;
+}
+#leftInner, #rightInner {
+  background-color: white;
 }
