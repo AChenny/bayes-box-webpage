@@ -9,7 +9,7 @@ div#window {
 }
 
 div {
-  border: black 1px solid;
+  border: black 2px solid;
 }
 
 div#barGraph{
@@ -34,23 +34,41 @@ div#bottom {
 
 /* Bar Graph */
 #bar {
-  width: 80%;
-  height: 80%;
-  margin: auto;
+  width: 600px;
+  height: 300px;
+  overflow: auto;
+  margin: 65px auto;
+  border: 0px;
 }
 #leftBar {
-  background-color: red;
-  width: 25%;
+  background-color: green;
+  width: 50%;
   height: 100%;
   float: left;
-  /* clear: left; */
+  border-left: 3px solid black;
+  border-right: 2px solid red;
+  border-top: 3px solid black;
 }
 #rightBar {
   background-color: blue;
-  width: 75%;
+  width: 50%;
   height: 100%;
   float: right;
+  border-right: 4px solid black;
+  border-left: 2px solid red;
+  border-top: 3px solid black;
 }
 #leftInner, #rightInner {
   background-color: white;
+  border: 0px;
+  border-bottom: 3px solid black;
+
+}
+#leftInner {
+  height: 50%;
+  /* border-left: 1px solid black; */
+}
+#rightInner {
+  height: 50%;
+  /* border-right: 1px solid black; */
 }
