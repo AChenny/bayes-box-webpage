@@ -42,27 +42,25 @@ div#bottom {
 }
 #leftBar {
   background-color: green;
-  width: 50%;
+  width: 49.5%;
   height: 100%;
   float: left;
   border-left: 3px solid black;
-  border-right: 2px solid red;
+  border-right: 0px;
   border-top: 3px solid black;
 }
 #rightBar {
   background-color: blue;
-  width: 50%;
+  width: 49.5%;
   height: 100%;
   float: right;
   border-right: 4px solid black;
-  border-left: 2px solid red;
+  border-left: 0px;
   border-top: 3px solid black;
 }
 #leftInner, #rightInner {
   background-color: white;
   border: 0px;
-  border-bottom: 3px solid black;
-
 }
 #leftInner {
   height: 50%;
@@ -71,4 +69,17 @@ div#bottom {
 #rightInner {
   height: 50%;
   /* border-right: 1px solid black; */
+}
+#verticalDivisionBar {
+  width: 1%;
+  height: 100%;
+  background-color:red;
+  float: right;
+  cursor: col-resize;
+  border: 0px;
+}
+#leftDivisionBar, #rightDivisionBar {
+  width: 100%;
+  height: 1%;
+  cursor: row-resize;
 }
