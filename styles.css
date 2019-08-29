@@ -34,27 +34,27 @@ div#bottom {
 
 /* Bar Graph */
 #bar {
-  width: 600px;
+  width: 615px;
   height: 300px;
-  overflow: auto;
+  overflow: visible;
   margin: 65px auto;
   border: 0px;
 }
 #leftBar {
   background-color: green;
-  width: 49.5%;
+  width: 305px;
   height: 100%;
   float: left;
-  border-left: 3px solid black;
+  border-left: 5px solid black;
   border-right: 0px;
   border-top: 3px solid black;
 }
 #rightBar {
   background-color: blue;
-  width: 49.5%;
+  width: 305px;
   height: 100%;
   float: right;
-  border-right: 4px solid black;
+  border-right: 5px solid black;
   border-left: 0px;
   border-top: 3px solid black;
 }
@@ -71,7 +71,7 @@ div#bottom {
   /* border-right: 1px solid black; */
 }
 #verticalDivisionBar {
-  width: 1%;
+  width: 5px;
   height: 100%;
   background-color:red;
   float: right;
