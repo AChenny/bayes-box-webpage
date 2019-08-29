@@ -1,9 +1,8 @@
-var dragging = false;
+var horzDragging = false;
+var leftVertDrag = false;
+var rightVertDrag = false;
 var startPosX = 0;
 var startPosY = 0;
-var endPosX = 0;
-var endPosY = 0;
-var i = 0;
 $(document).ready(function() {
 
   //Function for pressing the verticalDivisionBar
@@ -15,12 +14,29 @@ $(document).ready(function() {
     startPosX = e.pageX - $('#bar').offset().left;
 
   });
+  //Function for pressing the left horizontal division bar
+  $('#leftDivisionBar').mousedown(function(e){
+    e.preventDefault();
+
+    leftVertDrag = true;
+    startPosY = e.pageY - $('#bar').offset().top;
+  });
+
+  //Function for pressing the right horizontal division bar
+  $('#rightDivisionBar').mousedown(function(e) {
+    e.preventDefault();
+
+    rightVertDrag = true;
+    startPosY = e.pageY - $('#bar').offset().top;
+  });
+
+
   $(document).mousemove(function(e){
 
     if (horzDragging) {
       var posInGraphX = e.pageX - $('#bar').offset().left;
 
-      offset = posInGraphX - startPosX;
+      var offset = posInGraphX - startPosX;
 
      // Necessary to get new widths in a seperate variable instead of putting it in the css call, or dragging
      // too fast will make it go to the next line
@@ -40,10 +56,45 @@ $(document).ready(function() {
 
       startPosX = posInGraphX;
     }
+    else if (leftVertDrag) {
+      var posInGraphY = e.pageY - $('#bar').offset().top;
+      var offset = posInGraphY - startPosY;
+
+      var newLeftHeight = Math.round(10* ($('#leftInner').outerHeight()))/10 + offset;
+
+      if (newLeftHeight < 0) {
+        newLeftHeight = 0;
+      }
+      else if (newLeftHeight > 300) {
+        newLeftHeight = 300;
+      }
+
+      $('#leftInner').css('height', newLeftHeight);
+
+      startPosY = posInGraphY;
+    }
+    else if (rightVertDrag) {
+      var posInGraphY = e.pageY - $('#bar').offset().top;
+      var offset = posInGraphY - startPosY;
+
+      var newRightHeight = Math.round(10* ($('#rightInner').outerHeight()))/10 + offset;
+
+      if (newRightHeight < 0) {
+        newRightHeight = 0;
+      }
+      else if (newRightHeight > 300) {
+        newRightHeight = 300;
+      }
+
+      $('#rightInner').css('height', newRightHeight);
+
+      startPosY = posInGraphY;
+    }
   });
 
   $(document).mouseup(function(e) {
-    horDragging = false;
-    // offSetX = startPosX - e.pageX;
+    horzDragging = false;
+    leftVertDrag = false;
+    rightVertDrag = false;
   });
 });

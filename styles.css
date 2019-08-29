@@ -35,7 +35,7 @@ div#bottom {
 /* Bar Graph */
 #bar {
   width: 615px;
-  height: 300px;
+  height: 315px;
   overflow: visible;
   margin: 65px auto;
   border: 0px;
@@ -47,7 +47,8 @@ div#bottom {
   float: left;
   border-left: 5px solid black;
   border-right: 0px;
-  border-top: 3px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
 }
 #rightBar {
   background-color: blue;
@@ -56,18 +57,19 @@ div#bottom {
   float: right;
   border-right: 5px solid black;
   border-left: 0px;
-  border-top: 3px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
 }
 #leftInner, #rightInner {
   background-color: white;
   border: 0px;
 }
 #leftInner {
-  height: 50%;
+  height: 150px;
   /* border-left: 1px solid black; */
 }
 #rightInner {
-  height: 50%;
+  height: 150px;
   /* border-right: 1px solid black; */
 }
 #verticalDivisionBar {
@@ -80,6 +82,7 @@ div#bottom {
 }
 #leftDivisionBar, #rightDivisionBar {
   width: 100%;
-  height: 1%;
+  height: 5px;
   cursor: row-resize;
+  background-color: black;
 }
