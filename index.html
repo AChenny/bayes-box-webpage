@@ -11,11 +11,44 @@
   </head>
   <body>
     <div id="window">
-      <div class="row" id="formula">
-          <div class="col-12">
-
+      <div class="row" id="formulaTop">
+          <div class="col-2">
+            P(H|E)
+          </div>
+          <div class="col-1">
+            =
+          </div>
+          <div class="col-3">
+            P(E|H) * P(H)
+            <div class="row">
+              <div class="col-3">
+                SAA + (P(E|NOT-H) * P(NOT-H))
+              </div>
+            </div>
+          </div>
+          <div class="col-1">
+            =
+          </div>
+          <div class="col-3">
+            [Box1] * [Box2]
+            <div class="row">
+              <div class="col-3">
+                SAA + ([Box3] * var1)
+              </div>
+            </div>
+          </div>
+          <div class="col-1">
+            =
+          </div>
+          <div class="col-1">
+            var2
           </div>
       </div>
+      <!-- <div class="row" id="formulaBottom">
+        <div class="col-12">
+
+        </div>
+      </div> -->
       <div class="row" id="bottom">
           <div class="col-4" id="pieChart">
 

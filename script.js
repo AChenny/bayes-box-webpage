@@ -4,6 +4,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
+  ['Probability', 'Percentage'],
   ['left', .5],
   ['right', .5],
   ]);
