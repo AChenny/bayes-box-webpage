@@ -25,6 +25,28 @@ function updatePieChart(chart, leftPercentage, rightPercentage) {
   chart.draw(data, options);
 }
 
+//Formula scripts
+function updateFormula(pEH, pENotH, pH) {
+  //Update box1
+  var box1 = document.getElementById('box1');
+  box1.value = pEH;
+  //Update box2
+  var box2 = document.getElementById('box2');
+  box2.value = pH;
+  //Update box3
+  var box3 = document.getElementById('box3');
+  box3.value = pENotH;
+  //Update formula text 1 P(NOT-H)
+  var formVar1 = document.getElementById('formVar1');
+  formVar1.innerHTML = 1 - pH;
+  //update var2
+  var formVar2 = document.getElementById('formVar2');
+  var pHE = (pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)));
+  formVar2.innerHTML = pHE.toFixed(3);
+}
+
+
+//--------------------
 
 function getVerticalPercentage(height) {
   var heightInt = parseInt(height.slice(0, height.length - 2));

@@ -11,44 +11,45 @@
   </head>
   <body>
     <div id="window">
-      <div class="row" id="formulaTop">
-          <div class="col-2">
-            P(H|E)
+      <div class="row" id="formula">
+          <div style="margin: auto;" class="col-2">
+            <p style="text-align: center; display: inline;">P(H|E)</p>
           </div>
-          <div class="col-1">
+
+          <div style="margin: auto;" class="col-1">
             =
           </div>
-          <div class="col-3">
-            P(E|H) * P(H)
+
+          <div class="col-3" style="margin: auto;">
+            <p class="formulaTop">P(E|H) * P(H)</p>
             <div class="row">
-              <div class="col-3">
-                SAA + (P(E|NOT-H) * P(NOT-H))
+              <div class="col-12">
+                <p class="formulaBottom">SAA + (P(E|NOT-H) * P(NOT-H))</p>
               </div>
             </div>
           </div>
-          <div class="col-1">
+
+          <div class="col-1" style="margin: auto;">
             =
           </div>
-          <div class="col-3">
-            [Box1] * [Box2]
+
+          <div class="col-3" style="margin: auto;">
+            <div class="formulaTop"><input type="text" name="box1" id="box1" value="0.50" size="5"> * <input type="text" name="box2" id="box2" value="0.50" size="5"></div>
             <div class="row">
-              <div class="col-3">
-                SAA + ([Box3] * var1)
+              <div class="col-12">
+                <div class="formulaBottom">SAA + (<input type="text" name="box3" id="box3" value="0.50" size="5"> * <p id="formVar1" style="display: inline-block">var1</p>)</div>
               </div>
             </div>
           </div>
-          <div class="col-1">
+
+          <div class="col-1" style="margin: auto;">
             =
           </div>
-          <div class="col-1">
-            var2
+          <div class="col-1" style="margin: auto;">
+            <p id="formVar2" style="display: inline">var2</p>
           </div>
       </div>
-      <!-- <div class="row" id="formulaBottom">
-        <div class="col-12">
 
-        </div>
-      </div> -->
       <div class="row" id="bottom">
           <div class="col-4" id="pieChart">
 
