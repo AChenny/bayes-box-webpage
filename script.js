@@ -30,6 +30,7 @@ $(document).ready(function() {
     startPosX = e.pageX - $('#bar').offset().left;
 
   });
+  
   //Function for pressing the left horizontal division bar
   $('#leftDivisionBar').mousedown(function(e){
     e.preventDefault();
@@ -45,7 +46,6 @@ $(document).ready(function() {
     rightVertDrag = true;
     startPosY = e.pageY - $('#bar').offset().top;
   });
-
 
   $(document).mousemove(function(e){
 
