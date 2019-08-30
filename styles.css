@@ -8,22 +8,26 @@ div#window {
   margin: auto auto;
 }
 
-div {
+/* div {
   border: black 2px solid;
-}
+} */
 
 div#barGraph{
   height: 465px;
   width: 600px;
+  border: black 2px solid;
 }
 
 div#formula {
   height: 160px;
   margin: auto;
+  border: black 2px solid;
 }
 
-div#piChart {
+div#pieChart {
   height: 465px;
+  border: black 2px solid;
+  margin: auto auto;
 }
 
 div#bottom {

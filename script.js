@@ -1,8 +1,28 @@
-var horzDragging = false;
-var leftVertDrag = false;
-var rightVertDrag = false;
-var startPosX = 0;
-var startPosY = 0;
+
+var chart;
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['left', .5],
+  ['right', .5],
+  ]);
+
+  var options = {'width': 350, 'height': 400, 'legend': 'none' };
+
+  chart = new google.visualization.PieChart(document.getElementById('pieChart'));
+  chart.draw(data, options);
+};
+
+function updatePieChart(chart, leftPercentage, rightPercentage) {
+  var data = google.visualization.arrayToDataTable([
+  ['left', leftPercentage],
+  ['right', rightPercentage],
+  ]);
+  chart.clearChart();
+  var options = {'width': 350, 'height': 400, 'legend': 'none' };
+  chart.draw(data, options);
+}
 
 
 function getVerticalPercentage(height) {
@@ -20,6 +40,11 @@ function getHorizontalPercentage(width) {
 };
 
 $(document).ready(function() {
+  var horzDragging = false;
+  var leftVertDrag = false;
+  var rightVertDrag = false;
+  var startPosX = 0;
+  var startPosY = 0;
 
   //Function for pressing the verticalDivisionBar
   $('#verticalDivisionBar').mousedown(function(e){
@@ -30,7 +55,7 @@ $(document).ready(function() {
     startPosX = e.pageX - $('#bar').offset().left;
 
   });
-  
+
   //Function for pressing the left horizontal division bar
   $('#leftDivisionBar').mousedown(function(e){
     e.preventDefault();
