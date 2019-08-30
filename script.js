@@ -3,6 +3,22 @@ var leftVertDrag = false;
 var rightVertDrag = false;
 var startPosX = 0;
 var startPosY = 0;
+
+
+function getVerticalPercentage(height) {
+  var heightInt = parseInt(height.slice(0, height.length - 2));
+  heightInt = heightInt / 300;
+
+  return heightInt;
+};
+
+function getHorizontalPercentage(width) {
+  var widthInt = parseInt(width.slice(0, width.length - 2));
+  widthInt = (widthInt - 5) / 600;
+
+  return widthInt;
+};
+
 $(document).ready(function() {
 
   //Function for pressing the verticalDivisionBar
