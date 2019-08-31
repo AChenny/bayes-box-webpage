@@ -37,7 +37,7 @@
             <div class="formulaTop"><input type="text" name="box1" id="box1" value="0.50" size="5"> * <input type="text" name="box2" id="box2" value="0.50" size="5"></div>
             <div class="row">
               <div class="col-12">
-                <div class="formulaBottom">SAA + (<input type="text" name="box3" id="box3" value="0.50" size="5"> * <p id="formVar1" style="display: inline-block">var1</p>)</div>
+                <div class="formulaBottom">SAA + (<input type="text" name="box3" id="box3" value="0.50" size="5"> * <p id="formVar1" style="display: inline-block">0.50</p>)</div>
               </div>
             </div>
           </div>
@@ -46,14 +46,33 @@
             =
           </div>
           <div class="col-1" style="margin: auto;">
-            <p id="formVar2" style="display: inline">var2</p>
+            <p id="formVar2" style="display: inline">0.50</p>
           </div>
       </div>
 
       <div class="row" id="bottom">
-          <div class="col-4" id="pieChart">
-
+          <div class="col-4" style="border: solid black 2px;">
+            <div id="pieChart">
+              <!-- <canvas id="pieCanvas" width="300" height="300"></canvas> -->
+            </div>
+            <div class="row">
+              <div class="col-6">
+                BELIEVE
+              </div>
+              <div class="col-6">
+                CONFIRMATION
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <p>DISBELIEVE</p>
+              </div>
+              <div class="col-6">
+                DISCONFIRMATION
+              </div>
+            </div>
           </div>
+
           <div class="col-8" id="barGraph">
             <div id="bar">
               <div id="leftBar">
@@ -81,10 +100,6 @@
           </div>
       </div>
     </div>
-
-
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

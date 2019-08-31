@@ -1,4 +1,10 @@
 
+// TODO: Work in the addLineTOPieChart function somehow into the piechart, or create a different piechart
+// that will allow for a line as well as the piechart
+var pEH = 0.50;
+var pENotH = 0.50;
+var pH = 0.50;
+
 var chart;
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -17,47 +23,51 @@ function drawChart() {
 
 function updatePieChart(chart, leftPercentage, rightPercentage) {
   var data = google.visualization.arrayToDataTable([
+  ['Probability', 'Percentage'],
   ['left', leftPercentage],
   ['right', rightPercentage],
   ]);
   chart.clearChart();
   var options = {'width': 350, 'height': 400, 'legend': 'none' };
   chart.draw(data, options);
-}
+};
+
+function addLineToPieChart(){
+  var element = document.querySelector('[aria-label="A chart."]').querySelector('[aria-label="A chart."]');
+  element.innerHTML = element.innerHTML + '<line x1="175" y1="200" x2="175" y2="325" style="stroke:rgb(255,0,0);stroke-width:2" />';
+};
 
 //Formula scripts
 function updateFormula(pEH, pENotH, pH) {
   //Update box1
   var box1 = document.getElementById('box1');
-  box1.value = pEH;
+  box1.value = pEH.toFixed(3);
   //Update box2
   var box2 = document.getElementById('box2');
-  box2.value = pH;
+  box2.value = pH.toFixed(3);
   //Update box3
   var box3 = document.getElementById('box3');
-  box3.value = pENotH;
+  box3.value = pENotH.toFixed(3);
   //Update formula text 1 P(NOT-H)
   var formVar1 = document.getElementById('formVar1');
-  formVar1.innerHTML = 1 - pH;
+  formVar1.innerHTML = (1 - pH).toFixed(3);
   //update var2
   var formVar2 = document.getElementById('formVar2');
   var pHE = (pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)));
   formVar2.innerHTML = pHE.toFixed(3);
 }
 
-
 //--------------------
 
 function getVerticalPercentage(height) {
-  var heightInt = parseInt(height.slice(0, height.length - 2));
-  heightInt = heightInt / 300;
+  var heightInt = height / 300;
 
   return heightInt;
 };
 
 function getHorizontalPercentage(width) {
-  var widthInt = parseInt(width.slice(0, width.length - 2));
-  widthInt = (widthInt - 5) / 600;
+  // var widthInt = parseInt(width.slice(0, width.length - 2));
+  var widthInt = (width - 5) / 600;
 
   return widthInt;
 };
@@ -68,6 +78,7 @@ $(document).ready(function() {
   var rightVertDrag = false;
   var startPosX = 0;
   var startPosY = 0;
+
 
   //Function for pressing the verticalDivisionBar
   $('#verticalDivisionBar').mousedown(function(e){
@@ -118,6 +129,9 @@ $(document).ready(function() {
       $('#leftBar').css('width', newLeftWidth);
       $('#rightBar').css('width', newRightWidth);
 
+      pH = getHorizontalPercentage(newLeftWidth);
+      updateFormula(pEH, pENotH, pH);
+
       startPosX = posInGraphX;
     }
     else if (leftVertDrag) {
@@ -134,6 +148,8 @@ $(document).ready(function() {
       }
 
       $('#leftInner').css('height', newLeftHeight);
+      pEH = getVerticalPercentage(300 - newLeftHeight);
+      updateFormula(pEH, pENotH, pH);
 
       startPosY = posInGraphY;
     }
@@ -152,8 +168,12 @@ $(document).ready(function() {
 
       $('#rightInner').css('height', newRightHeight);
 
+      pENotH = getVerticalPercentage(300 - newRightHeight);
+      updateFormula(pEH, pENotH, pH);
       startPosY = posInGraphY;
     }
+
+
   });
 
   $(document).mouseup(function(e) {
