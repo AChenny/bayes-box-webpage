@@ -129,6 +129,16 @@ $(document).ready(function() {
       $('#leftBar').css('width', newLeftWidth);
       $('#rightBar').css('width', newRightWidth);
 
+      //Add offset to middle bar label
+      var newMiddleLeft = parseInt($('#bar_middleLabel').css('left')) + offset;
+      if (newMiddleLeft < 70) {
+        newMiddleLeft = 70;
+      }
+      else if (newMiddleLeft > 670) {
+        newMiddleLeft = 670;
+      }
+      $('#bar_middleLabel').css('left', newMiddleLeft + 'px');
+
       pH = getHorizontalPercentage(newLeftWidth);
       updateFormula(pEH, pENotH, pH);
 
@@ -148,9 +158,18 @@ $(document).ready(function() {
       }
 
       $('#leftInner').css('height', newLeftHeight);
+      // Add vertical offset to left bar label
+      var newLeftLabelTop = parseInt($('#bar_leftLabel').css('top')) + offset;
+      if (newLeftLabelTop < 60) {
+        newLeftLabelTop = 60;
+      }
+      else if (newLeftLabelTop > 360) {
+        newLeftLabelTop = 360;
+      }
+      $('#bar_leftLabel').css('top', newLeftLabelTop + 'px');
+
       pEH = getVerticalPercentage(300 - newLeftHeight);
       updateFormula(pEH, pENotH, pH);
-
       startPosY = posInGraphY;
     }
     else if (rightVertDrag) {
@@ -167,6 +186,15 @@ $(document).ready(function() {
       }
 
       $('#rightInner').css('height', newRightHeight);
+      // Add vertical offset to right bar label
+      var newRightLabelTop = parseInt($('#bar_rightLabel').css('top')) + offset;
+      if (newRightLabelTop < 60) {
+        newRightLabelTop = 60;
+      }
+      else if (newRightLabelTop > 360) {
+        newRightLabelTop = 360;
+      }
+      $('#bar_rightLabel').css('top', newRightLabelTop + 'px');
 
       pENotH = getVerticalPercentage(300 - newRightHeight);
       updateFormula(pEH, pENotH, pH);
