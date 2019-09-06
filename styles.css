@@ -101,6 +101,11 @@ div#bottom {
   bottom: 50px;
   left: 370px;
 }
+/* believe/disbelieve--confirmation/disconfirmation tags */
+
+.tag {
+  color: #C0C0C0;
+}
 
 /* Formula styles */
 

@@ -1,9 +1,9 @@
 
 // TODO: Work in the addLineTOPieChart function somehow into the piechart, or create a different piechart
 // that will allow for a line as well as the piechart
-var pEH = 0.50;
-var pENotH = 0.50;
-var pH = 0.50;
+var pEH = 0.500;
+var pENotH = 0.500;
+var pH = 0.500;
 
 var chart;
 google.charts.load('current', {'packages':['corechart']});
@@ -78,7 +78,6 @@ $(document).ready(function() {
   var rightVertDrag = false;
   var startPosX = 0;
   var startPosY = 0;
-
 
   //Function for pressing the verticalDivisionBar
   $('#verticalDivisionBar').mousedown(function(e){
@@ -201,7 +200,32 @@ $(document).ready(function() {
       startPosY = posInGraphY;
     }
 
-
+    //Update tags
+    var pHE = (pEH * pH)/((pEH * pH) + (pENotH * (1 - pH))).toFixed(3);
+    if (pHE == 0.500) {
+      $('#believeTag').css('color', '#C0C0C0');
+      $('#disbelieveTag').css('color', '#C0C0C0');
+    }
+    else if (pHE > 0.500) {
+      $('#believeTag').css('color', '#000000');
+      $('#disbelieveTag').css('color', '#C0C0C0');
+    }
+    else if (pHE < 0.500) {
+      $('#believeTag').css('color', '#C0C0C0');
+      $('#disbelieveTag').css('color', '#000000');
+    }
+    if (pHE == pH.toFixed(3)) {
+      $('#confirmationTag').css('color', '#C0C0C0');
+      $('#disconfirmationTag').css('color', '#C0C0C0');
+    }
+    else if(pHE > pH.toFixed(3)) {
+      $('#confirmationTag').css('color', '#000000');
+      $('#disconfirmationTag').css('color', '#C0C0C0');
+    }
+    else if (pHE < pH.toFixed(3)) {
+      $('#confirmationTag').css('color', '#C0C0C0');
+      $('#disconfirmationTag').css('color', '#000000');
+    }
   });
 
   $(document).mouseup(function(e) {
