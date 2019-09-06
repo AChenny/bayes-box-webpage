@@ -87,10 +87,10 @@ div#bottom {
 }
 
 #bar_leftLabel {
-  left: 40px;
+  left: 25px;
 }
 #bar_rightLabel {
-  right: 40px;
+  right: 5px;
 }
 .bar_label {
   position: absolute;
@@ -98,8 +98,8 @@ div#bottom {
 }
 #bar_middleLabel {
   position: absolute;
-  bottom: 50px;
-  left: 370px;
+  bottom: 40px;
+  left: 380px;
 }
 /* believe/disbelieve--confirmation/disconfirmation tags */
 
@@ -123,4 +123,23 @@ div#bottom {
 
 .entryBox {
   width: 50px;
+}
+
+.formula_pHEText {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+}
+.formula_pHEResult {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  padding-left: 0px;
+}
+
+.formula_equationText {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 19px;
+}
+
+.formula_equalsText {
+  text-align: center;
 }

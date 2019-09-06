@@ -13,27 +13,27 @@
     <div id="window">
       <div class="row" id="formula">
           <div style="margin: auto;" class="col-2">
-            <p style="text-align: center; display: inline;">P(H|E)</p>
+            <p style="text-align: center;" class="formula_pHEText"><i>P</i>(H|E)</p>
           </div>
 
           <div style="margin: auto;" class="col-1">
-            =
+            <p class="formula_equationText formula_equalsText">=</p>
           </div>
 
-          <div class="col-3" style="margin: auto;">
-            <p class="formulaTop">P(E|H) * P(H)</p>
+          <div class="col-3 formula_equationText" style="margin: auto;">
+            <p class="formulaTop"><i>P</i>(E|H) * <i>P</i>(H)</p>
             <div class="row">
               <div class="col-12">
-                <p class="formulaBottom">SAA + (P(E|NOT-H) * P(NOT-H))</p>
+                <p class="formulaBottom">SAA + (<i>P</i>(E|NOT-H) * <i>P</i>(NOT-H))</p>
               </div>
             </div>
           </div>
 
-          <div class="col-1" style="margin: auto;">
-            =
+          <div class="col-1 formula_equationText" style="margin: auto;">
+            <p class="formula_equationText formula_equalsText">=</p>
           </div>
 
-          <div class="col-3" style="margin: auto;">
+          <div class="col-3 formula_equationText" style="margin: auto;">
             <div class="formulaTop"><input type="text" name="box1" id="box1" value="0.500" size="5"> * <input type="text" name="box2" id="box2" value="0.500" size="5"></div>
             <div class="row">
               <div class="col-12">
@@ -42,11 +42,11 @@
             </div>
           </div>
 
-          <div class="col-1" style="margin: auto;">
-            =
+          <div class="col-1 formula_equationText" style="margin: auto;">
+            <p class="formula_equationText formula_equalsText">=</p>
           </div>
-          <div class="col-1" style="margin: auto;">
-            <p id="formVar2" style="display: inline">0.500</p>
+          <div class="col-1" style="margin: auto; padding-left: 0px;">
+            <p id="formVar2" class="formula_pHEResult">0.500</p>
           </div>
       </div>
 
@@ -75,16 +75,20 @@
 
           <div class="col-8" id="barGraph">
             <div id="bar_leftLabel" class="bar_label">
-              left
+              <p><i>P</i>(E|H)</p>
+              <p>=</p>
+              <p>0.500</p>
             </div>
             <div id="bar_rightLabel" class="bar_label">
-              right
+              <p><i>P</i>(E|NOT-H)</p>
+              <p>=</p>
+              <p>0.500</p>
             </div>
             <div id="bar">
               <div id="leftBar">
 
                 <div id="leftInner">
-                  left
+
                 </div>
                 <div id="leftDivisionBar">
 
@@ -93,7 +97,7 @@
 
               <div id="rightBar">
                 <div id="rightInner">
-                  right
+
                 </div>
                 <div id="rightDivisionBar">
 
@@ -104,7 +108,7 @@
               </div>
             </div>
             <div id="bar_middleLabel">
-              middle
+              <p><i>P</i>(H) = 0.500</p>
             </div>
           </div>
       </div>

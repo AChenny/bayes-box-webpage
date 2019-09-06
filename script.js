@@ -130,11 +130,11 @@ $(document).ready(function() {
 
       //Add offset to middle bar label
       var newMiddleLeft = parseInt($('#bar_middleLabel').css('left')) + offset;
-      if (newMiddleLeft < 70) {
-        newMiddleLeft = 70;
+      if (newMiddleLeft < 80) {
+        newMiddleLeft = 80;
       }
-      else if (newMiddleLeft > 670) {
-        newMiddleLeft = 670;
+      else if (newMiddleLeft > 680) {
+        newMiddleLeft = 680;
       }
       $('#bar_middleLabel').css('left', newMiddleLeft + 'px');
 
@@ -201,7 +201,7 @@ $(document).ready(function() {
     }
 
     //Update tags
-    var pHE = (pEH * pH)/((pEH * pH) + (pENotH * (1 - pH))).toFixed(3);
+    var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
     if (pHE == 0.500) {
       $('#believeTag').css('color', '#C0C0C0');
       $('#disbelieveTag').css('color', '#C0C0C0');
