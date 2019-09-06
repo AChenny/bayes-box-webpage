@@ -139,6 +139,8 @@ $(document).ready(function() {
       $('#bar_middleLabel').css('left', newMiddleLeft + 'px');
 
       pH = getHorizontalPercentage(newLeftWidth);
+      $('#bar_middleLabelPercentage').html(pH.toFixed(3));
+
       updateFormula(pEH, pENotH, pH);
 
       startPosX = posInGraphX;
@@ -169,6 +171,8 @@ $(document).ready(function() {
 
       pEH = getVerticalPercentage(300 - newLeftHeight);
       updateFormula(pEH, pENotH, pH);
+
+      $('#bar_leftLabelPercentage').html(pEH.toFixed(3));
       startPosY = posInGraphY;
     }
     else if (rightVertDrag) {
@@ -197,6 +201,7 @@ $(document).ready(function() {
 
       pENotH = getVerticalPercentage(300 - newRightHeight);
       updateFormula(pEH, pENotH, pH);
+      $('#bar_rightLabelPercentage').html(pENotH.toFixed(3));
       startPosY = posInGraphY;
     }
 
