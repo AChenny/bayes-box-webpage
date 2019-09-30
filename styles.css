@@ -13,7 +13,7 @@ div#window {
 }
 
 div#barGraph{
-  height: 615px;
+  height: 570px;
   width: 600px;
   border: black 2px solid;
 }
@@ -22,18 +22,13 @@ div#belCon {
   border: black 2px solid;
   width: 1200px;
   max-width: 1200px;
-  margin:  auto;
+  margin: auto;
 }
 
 div#formula{
   height: 110px;
   margin: auto;
   border: black 2px solid;
-}
-
-div#pieChart {
-  height: 355px;
-  margin: auto auto;
 }
 
 div#bottom {
@@ -47,7 +42,7 @@ div#bottom {
   width: 815px;
   height: 450px;
   overflow: visible;
-  margin: 65px auto;
+  margin: 55px auto;
   border: 0px;
 }
 #leftBar {
@@ -85,7 +80,7 @@ div#bottom {
 #verticalDivisionBar {
   width: 5px;
   height: 100%;
-  background-color:#B22222;
+  background-color: #B22222;
   float: right;
   cursor: col-resize;
   border: 0px;
@@ -96,7 +91,6 @@ div#bottom {
   cursor: row-resize;
   background-color: black;
 }
-
 #bar_leftLabel {
   left: 110px;
 }
@@ -105,15 +99,14 @@ div#bottom {
 }
 .bar_label {
   position: absolute;
-  top: 275px;
+  top: 265px;
 }
 #bar_middleLabel {
   color: #B22222;
   position: absolute;
-  bottom: 40px;
-  left: 585px;
+  bottom: 5px;
+  left: 580px;
 }
-#bar_leftLabelPercentage
 
 /* believe/disbelieve--confirmation/disconfirmation tags */
 
@@ -122,7 +115,11 @@ div#bottom {
 }
 
 #belCon p {
-  margin-top: 10px;
+  padding-top: 10px;
+  margin-left: 50px;
+}
+#belCon div {
+  margin: auto auto;
 }
 
 /* Formula styles */
@@ -144,7 +141,6 @@ div#bottom {
 }
 
 .formula_pHEText {
-
   font-size: 30px;
 }
 .formula_pHEResult {
@@ -158,4 +154,14 @@ div#bottom {
 
 .formula_equalsText {
   text-align: center;
+}
+
+#box1 {
+  background-color: #90FF93;
+}
+#box2 {
+  background-color: #B22222;
+}
+#box3 {
+  background-color: #90B1FF;
 }

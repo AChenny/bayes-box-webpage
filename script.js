@@ -103,8 +103,8 @@ $(document).ready(function() {
 
       //Add offset to middle bar label
       var newMiddleLeft = parseInt($('#bar_middleLabel').css('left')) + offset;
-      if (newMiddleLeft < 185) {
-        newMiddleLeft = 185;
+      if (newMiddleLeft < 180) {
+        newMiddleLeft = 180;
       }
       else if (newMiddleLeft > 980) {
         newMiddleLeft = 980;
@@ -133,11 +133,11 @@ $(document).ready(function() {
       $('#leftInner').css('height', newLeftHeight);
       // Add vertical offset to left bar label
       var newLeftLabelTop = parseInt($('#bar_leftLabel').css('top')) + offset;
-      if (newLeftLabelTop < 60) {
-        newLeftLabelTop = 60;
+      if (newLeftLabelTop < 50) {
+        newLeftLabelTop = 50;
       }
-      else if (newLeftLabelTop > 495) {
-        newLeftLabelTop = 495;
+      else if (newLeftLabelTop > 485) {
+        newLeftLabelTop = 485;
       }
       $('#bar_leftLabel').css('top', newLeftLabelTop + 'px');
 
@@ -162,11 +162,11 @@ $(document).ready(function() {
       $('#rightInner').css('height', newRightHeight);
       // Add vertical offset to right bar label
       var newRightLabelTop = parseInt($('#bar_rightLabel').css('top')) + offset;
-      if (newRightLabelTop < 60) {
-        newRightLabelTop = 60;
+      if (newRightLabelTop < 50) {
+        newRightLabelTop = 50;
       }
-      else if (newRightLabelTop > 495) {
-        newRightLabelTop = 495;
+      else if (newRightLabelTop > 485) {
+        newRightLabelTop = 485;
       }
       $('#bar_rightLabel').css('top', newRightLabelTop + 'px');
 
