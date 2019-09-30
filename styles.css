@@ -156,12 +156,19 @@ div#bottom {
   text-align: center;
 }
 
-#box1 {
+.formulaTop > span > p {
+  display: inline;
+  padding: 4px 2px;
   background-color: #90FF93;
 }
-#box2 {
-  background-color: #B22222;
+#box1,#box2 {
+  background-color: #90FF93;
 }
 #box3 {
   background-color: #90B1FF;
+
+}
+input {
+  border: 1px solid grey;
+  font-weight: bold;
 }
