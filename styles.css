@@ -1,21 +1,32 @@
-body {
+body p{
   height: 100%;
 }
 
+body p, div {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
 div#window {
-  height: 625px;
+  height: 775px;
   width: 1200px;
-  margin: auto auto;
+  margin: 2% auto;
 }
 
 div#barGraph{
-  height: 465px;
+  height: 615px;
   width: 600px;
   border: black 2px solid;
 }
 
+div#belCon {
+  border: black 2px solid;
+  width: 1200px;
+  max-width: 1200px;
+  margin:  auto;
+}
+
 div#formula{
-  height: 160px;
+  height: 110px;
   margin: auto;
   border: black 2px solid;
 }
@@ -26,22 +37,22 @@ div#pieChart {
 }
 
 div#bottom {
-  height: 465px;
+  height: 615px;
   max-width: 1200px;
   margin:auto;
 }
 
 /* Bar Graph */
 #bar {
-  width: 615px;
-  height: 315px;
+  width: 815px;
+  height: 450px;
   overflow: visible;
   margin: 65px auto;
   border: 0px;
 }
 #leftBar {
-  background-color: green;
-  width: 305px;
+  background-color: #90FF93;
+  width: 405px;
   height: 100%;
   float: left;
   border-left: 5px solid black;
@@ -50,8 +61,8 @@ div#bottom {
   border-bottom: 5px solid black;
 }
 #rightBar {
-  background-color: blue;
-  width: 305px;
+  background-color: #90B1FF;
+  width: 405px;
   height: 100%;
   float: right;
   border-right: 5px solid black;
@@ -64,17 +75,17 @@ div#bottom {
   border: 0px;
 }
 #leftInner {
-  height: 150px;
+  height: 215px;
   /* border-left: 1px solid black; */
 }
 #rightInner {
-  height: 150px;
+  height: 215px;
   /* border-right: 1px solid black; */
 }
 #verticalDivisionBar {
   width: 5px;
   height: 100%;
-  background-color:red;
+  background-color:#B22222;
   float: right;
   cursor: col-resize;
   border: 0px;
@@ -87,24 +98,31 @@ div#bottom {
 }
 
 #bar_leftLabel {
-  left: 25px;
+  left: 110px;
 }
 #bar_rightLabel {
-  right: 5px;
+  right: 70px;
 }
 .bar_label {
   position: absolute;
-  top: 210px;
+  top: 275px;
 }
 #bar_middleLabel {
+  color: #B22222;
   position: absolute;
   bottom: 40px;
-  left: 380px;
+  left: 585px;
 }
+#bar_leftLabelPercentage
+
 /* believe/disbelieve--confirmation/disconfirmation tags */
 
 .tag {
   color: #C0C0C0;
+}
+
+#belCon p {
+  margin-top: 10px;
 }
 
 /* Formula styles */
@@ -126,18 +144,16 @@ div#bottom {
 }
 
 .formula_pHEText {
-  font-family: "Times New Roman", Times, serif;
+
   font-size: 30px;
 }
 .formula_pHEResult {
-  font-family: "Times New Roman", Times, serif;
   font-size: 25px;
   padding-left: 0px;
 }
 
 .formula_equationText {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .formula_equalsText {

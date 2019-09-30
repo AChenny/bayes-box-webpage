@@ -5,33 +5,6 @@ var pEH = 0.500;
 var pENotH = 0.500;
 var pH = 0.500;
 
-var chart;
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Probability', 'Percentage'],
-  ['left', .5],
-  ['right', .5],
-  ]);
-
-  var options = {'width': 350, 'height': 400, 'legend': 'none' };
-
-  chart = new google.visualization.PieChart(document.getElementById('pieChart'));
-  chart.draw(data, options);
-};
-
-function updatePieChart(chart, leftPercentage, rightPercentage) {
-  var data = google.visualization.arrayToDataTable([
-  ['Probability', 'Percentage'],
-  ['left', leftPercentage],
-  ['right', rightPercentage],
-  ]);
-  chart.clearChart();
-  var options = {'width': 350, 'height': 400, 'legend': 'none' };
-  chart.draw(data, options);
-};
-
 function addLineToPieChart(){
   var element = document.querySelector('[aria-label="A chart."]').querySelector('[aria-label="A chart."]');
   element.innerHTML = element.innerHTML + '<line x1="175" y1="200" x2="175" y2="325" style="stroke:rgb(255,0,0);stroke-width:2" />';
@@ -60,14 +33,14 @@ function updateFormula(pEH, pENotH, pH) {
 //--------------------
 
 function getVerticalPercentage(height) {
-  var heightInt = height / 300;
+  var heightInt = height / 435;
 
   return heightInt;
 };
 
 function getHorizontalPercentage(width) {
   // var widthInt = parseInt(width.slice(0, width.length - 2));
-  var widthInt = (width - 5) / 600;
+  var widthInt = (width - 5) / 800;
 
   return widthInt;
 };
@@ -106,7 +79,7 @@ $(document).ready(function() {
   });
 
   $(document).mousemove(function(e){
-
+    //updateBargraph
     if (horzDragging) {
       var posInGraphX = e.pageX - $('#bar').offset().left;
 
@@ -119,10 +92,10 @@ $(document).ready(function() {
 
       if (newLeftWidth < 5) {
         newLeftWidth = 5;
-        newRightWidth = 605;
+        newRightWidth = 805;
       }
-      else if (newLeftWidth > 605) {
-        newLeftWidth = 605;
+      else if (newLeftWidth > 805) {
+        newLeftWidth = 805;
         newRightWidth = 5;
       }
       $('#leftBar').css('width', newLeftWidth);
@@ -130,16 +103,15 @@ $(document).ready(function() {
 
       //Add offset to middle bar label
       var newMiddleLeft = parseInt($('#bar_middleLabel').css('left')) + offset;
-      if (newMiddleLeft < 80) {
-        newMiddleLeft = 80;
+      if (newMiddleLeft < 185) {
+        newMiddleLeft = 185;
       }
-      else if (newMiddleLeft > 680) {
-        newMiddleLeft = 680;
+      else if (newMiddleLeft > 980) {
+        newMiddleLeft = 980;
       }
       $('#bar_middleLabel').css('left', newMiddleLeft + 'px');
 
       pH = getHorizontalPercentage(newLeftWidth);
-      $('#bar_middleLabelPercentage').html(pH.toFixed(3));
 
       updateFormula(pEH, pENotH, pH);
 
@@ -154,8 +126,8 @@ $(document).ready(function() {
       if (newLeftHeight < 0) {
         newLeftHeight = 0;
       }
-      else if (newLeftHeight > 300) {
-        newLeftHeight = 300;
+      else if (newLeftHeight > 435) {
+        newLeftHeight = 435;
       }
 
       $('#leftInner').css('height', newLeftHeight);
@@ -164,15 +136,14 @@ $(document).ready(function() {
       if (newLeftLabelTop < 60) {
         newLeftLabelTop = 60;
       }
-      else if (newLeftLabelTop > 360) {
-        newLeftLabelTop = 360;
+      else if (newLeftLabelTop > 495) {
+        newLeftLabelTop = 495;
       }
       $('#bar_leftLabel').css('top', newLeftLabelTop + 'px');
 
-      pEH = getVerticalPercentage(300 - newLeftHeight);
+      pEH = getVerticalPercentage(435 - newLeftHeight);
       updateFormula(pEH, pENotH, pH);
 
-      $('#bar_leftLabelPercentage').html(pEH.toFixed(3));
       startPosY = posInGraphY;
     }
     else if (rightVertDrag) {
@@ -184,8 +155,8 @@ $(document).ready(function() {
       if (newRightHeight < 0) {
         newRightHeight = 0;
       }
-      else if (newRightHeight > 300) {
-        newRightHeight = 300;
+      else if (newRightHeight > 435) {
+        newRightHeight = 435;
       }
 
       $('#rightInner').css('height', newRightHeight);
@@ -194,14 +165,13 @@ $(document).ready(function() {
       if (newRightLabelTop < 60) {
         newRightLabelTop = 60;
       }
-      else if (newRightLabelTop > 360) {
-        newRightLabelTop = 360;
+      else if (newRightLabelTop > 495) {
+        newRightLabelTop = 495;
       }
       $('#bar_rightLabel').css('top', newRightLabelTop + 'px');
 
-      pENotH = getVerticalPercentage(300 - newRightHeight);
+      pENotH = getVerticalPercentage(435 - newRightHeight);
       updateFormula(pEH, pENotH, pH);
-      $('#bar_rightLabelPercentage').html(pENotH.toFixed(3));
       startPosY = posInGraphY;
     }
 
@@ -231,6 +201,10 @@ $(document).ready(function() {
       $('#confirmationTag').css('color', '#C0C0C0');
       $('#disconfirmationTag').css('color', '#000000');
     }
+
+    //Update inner bar labels
+    $('#leftBarPercentage').html(pHE);
+    $('#rightBarPercentage').html((1- parseFloat(pHE)).toFixed(3));
   });
 
   $(document).mouseup(function(e) {
@@ -238,4 +212,13 @@ $(document).ready(function() {
     leftVertDrag = false;
     rightVertDrag = false;
   });
+
+  $(document).on('keypress',function(e) {
+    if(e.which == 13) {
+        pEH = parseFloat($("input[name=box1]").val());
+        pH = parseFloat($("input[name=box2]").val());
+        pENotH = parseFloat($("input[name=box3]").val());
+        updateFormula(pEH, pENotH, pH)
+    }
+});
 });
