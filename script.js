@@ -45,6 +45,41 @@ function getHorizontalPercentage(width) {
   return widthInt;
 };
 
+//Redraw with new formula
+function redraw(pEH, pENotH, pH) {
+  var maxHeight = 435
+  var maxWidth = 800
+
+  //LeftBox
+  $('#leftInner').css('height', ((1-pEH) * maxHeight))
+
+  //RightBox
+  $('#rightInner').css('height', ((1-pENotH) * maxHeight))
+
+  //Box Widths
+  $('#leftBar').css('width', ((pH) * maxWidth) + 5)
+  $('#rightBar').css('width', ((1-pH) * maxWidth) + 5)
+
+};
+
+function updateLabels(pEH, pENotH, pH) {
+  var maxHeight = 435
+  var maxWidth = 800
+  var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
+  //Update barGraph labels
+
+  //Update inner bar labels
+  $('#leftBarPercentage').html(pHE);
+  $('#rightBarPercentage').html((1- parseFloat(pHE)).toFixed(3));
+
+  //Left and right bargraph labels
+  $('#bar_leftLabel').css('top', ((1-pEH) * maxHeight) + 50);
+  $('#bar_rightLabel').css('top', ((1-pENotH) * maxHeight) + 50);
+
+  //Update Middle Label
+  $('#bar_middleLabel').css('left', ((pH * maxWidth) + 180) + 'px');
+}
+
 $(document).ready(function() {
   var horzDragging = false;
   var leftVertDrag = false;
@@ -202,9 +237,7 @@ $(document).ready(function() {
       $('#disconfirmationTag').css('color', '#000000');
     }
 
-    //Update inner bar labels
-    $('#leftBarPercentage').html(pHE);
-    $('#rightBarPercentage').html((1- parseFloat(pHE)).toFixed(3));
+    updateLabels(pEH, pENotH, pH)
   });
 
   $(document).mouseup(function(e) {
@@ -213,12 +246,15 @@ $(document).ready(function() {
     rightVertDrag = false;
   });
 
+  //On return key press
   $(document).on('keypress',function(e) {
     if(e.which == 13) {
         pEH = parseFloat($("input[name=box1]").val());
         pH = parseFloat($("input[name=box2]").val());
         pENotH = parseFloat($("input[name=box3]").val());
         updateFormula(pEH, pENotH, pH)
+        redraw(pEH, pENotH, pH)
+        updateLabels(pEH, pENotH, pH)
     }
 });
 });
