@@ -1,12 +1,6 @@
-
 var pEH = 0.500;
 var pENotH = 0.500;
 var pH = 0.500;
-
-function addLineToPieChart(){
-  var element = document.querySelector('[aria-label="A chart."]').querySelector('[aria-label="A chart."]');
-  element.innerHTML = element.innerHTML + '<line x1="175" y1="200" x2="175" y2="325" style="stroke:rgb(255,0,0);stroke-width:2" />';
-};
 
 //Formula scripts
 function updateFormula(pEH, pENotH, pH) {
@@ -90,13 +84,14 @@ function updateLabels(pEH, pENotH, pH) {
   }
 }
 
-
 $(document).ready(function() {
   var horzDragging = false;
   var leftVertDrag = false;
   var rightVertDrag = false;
   var startPosX = 0;
   var startPosY = 0;
+
+  updateLabels(pEH, pENotH, pH)
 
   //Function for pressing the verticalDivisionBar
   $('#verticalDivisionBar').mousedown(function(e){
