@@ -97,15 +97,25 @@ div#bottom {
 #bar_rightLabel {
   right: 70px;
 }
-.bar_label {
-  position: absolute;
-  top: 265px;
-}
 #bar_middleLabel {
   color: #B22222;
   position: absolute;
   bottom: 5px;
   left: 580px;
+}
+.bar_label {
+  position: absolute;
+  top: 265px;
+}
+
+/* TODO: Add functionality for innerbox percentages to go away after a minimum height */
+#leftBarPercentage {
+  text-align: center;
+  font-size: 28px;
+}
+#rightBarPercentage {
+  text-align: center;
+  font-size: 28px;
 }
 
 /* believe/disbelieve--confirmation/disconfirmation tags */

@@ -1,6 +1,4 @@
 
-// TODO: Work in the addLineTOPieChart function somehow into the piechart, or create a different piechart
-// that will allow for a line as well as the piechart
 var pEH = 0.500;
 var pENotH = 0.500;
 var pH = 0.500;
@@ -78,7 +76,20 @@ function updateLabels(pEH, pENotH, pH) {
 
   //Update Middle Label
   $('#bar_middleLabel').css('left', ((pH * maxWidth) + 180) + 'px');
+
+  //Update inner labels
+  //After 10% vertHeight, lower font size by 1px every .01
+  //After 5%, display none
+  //Left inner
+  if (pEH < 0.1 || pH < 0.1) {
+    $('#leftBarPercentage').css('font-size', 28 - 3*(10-(Math.min(pEH,pH) * 100)))
+  }
+
+  if (pENotH < 0.1 || pH > 0.9) {
+    $('#rightBarPercentage').css('font-size', 28 - 3*(10-(Math.min(pENotH,(1-pH)) * 100)))
+  }
 }
+
 
 $(document).ready(function() {
   var horzDragging = false;
@@ -256,5 +267,5 @@ $(document).ready(function() {
         redraw(pEH, pENotH, pH)
         updateLabels(pEH, pENotH, pH)
     }
-});
+  });
 });
