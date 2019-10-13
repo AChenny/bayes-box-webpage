@@ -57,11 +57,12 @@ function redraw(pEH, pENotH, pH) {
 function updateLabels(pEH, pENotH, pH) {
   var maxHeight = 435
   var maxWidth = 800
+  var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
   //Update barGraph labels
 
   //Update inner bar labels
-  $('#leftBarPercentage').html((pEH * pH).toFixed(3));
-  $('#rightBarPercentage').html((pENotH * (1-pH)).toFixed(3));
+  $('#leftBarPercentage').html(pHE);
+  $('#rightBarPercentage').html((1- parseFloat(pHE)).toFixed(3));
 
   //Left and right bargraph labels
   $('#bar_leftLabel').css('top', ((1-pEH) * maxHeight) + 50);
