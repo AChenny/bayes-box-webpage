@@ -82,6 +82,16 @@ function updateLabels(pEH, pENotH, pH) {
   if (pENotH < 0.1 || pH > 0.9) {
     $('#rightBarPercentage').css('font-size', 28 - 3*(10-(Math.min(pENotH,(1-pH)) * 100)))
   }
+
+  //Margin top for vertical
+  //FIXME Or TODO: Want to set the inner text to the middle of the bar, but for some reason, margin % scale correctly
+  //Upper limit - 47.5%
+  //lower limit - 10%
+  // var h = $('#leftInner').css('height')
+  // h = h.split("px")[0];
+  // $('#leftDivisionBar').css('margin-bottom', ( 217.5- (h/2)) + 'px')
+
+
 }
 
 $(document).ready(function() {
