@@ -10,4 +10,5 @@ Bayes Box Webpage is a website with the purpose of visualizing Bayesian Theory. 
 ## Known Issues
 <ul>
  <li>Moving the cursor too fast will cause the inner text to not resize properly</li>
+ <li>Some smaller screens are not supported</li>
 </ul>
