@@ -109,15 +109,12 @@ div#bottom {
   top: 265px;
 }
 
-/* TODO: Add functionality for innerbox percentages to go away after a minimum height */
-#leftBarPercentage {
+#leftBarPercentage, #rightBarPercentage {
   text-align: center;
   font-size: 28px;
+  height: 40px;
 }
-#rightBarPercentage {
-  text-align: center;
-  font-size: 28px;
-}
+
 
 /* believe/disbelieve--confirmation/disconfirmation tags */
 

@@ -85,12 +85,20 @@ function updateLabels(pEH, pENotH, pH) {
 
   //Margin top for vertical
   //FIXME Or TODO: Want to set the inner text to the middle of the bar, but for some reason, margin % scale correctly
-  //Upper limit - 47.5%
-  //lower limit - 10%
-  // var h = $('#leftInner').css('height')
-  // h = h.split("px")[0];
-  // $('#leftDivisionBar').css('margin-bottom', ( 217.5- (h/2)) + 'px')
-
+  var leftHeight = ($('#leftInner').css('height')).split("px")[0]
+  if (pEH < 0.1) {
+    $('#leftBarPercentage').css('margin-top', '0%');
+  }
+  else {
+    $('#leftBarPercentage').css('margin-top', 197.5 - (leftHeight/2));
+  }
+  var rightHeight = ($('#rightInner').css('height')).split("px")[0]
+  if (pENotH < 0.1) {
+    $('#rightBarPercentage').css('margin-top', '0%');
+  }
+  else {
+    $('#rightBarPercentage').css('margin-top', 197.5 - (rightHeight/2));
+  }
 
 }
 
