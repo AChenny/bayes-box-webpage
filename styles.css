@@ -144,7 +144,7 @@ div#bottom {
 }
 
 .formulaBottom {
-  border-top: solid black 2px;
+  border-top: solid black 1px;
   margin-top: 0px;
   text-align: center;
 }
@@ -154,15 +154,15 @@ div#bottom {
 }
 
 .formula_pHEText {
-  font-size: 30px;
+  font-size: 15pt;
 }
 .formula_pHEResult {
-  font-size: 25px;
+  font-size: 15pt;
   padding-left: 0px;
 }
 
 .formula_equationText {
-  font-size: 16px;
+  font-size: 10pt;
 }
 
 .formula_equalsText {
@@ -171,7 +171,7 @@ div#bottom {
 
 .formulaTop > span > p {
   display: inline;
-  padding: 4px 2px;
+  padding: 3px 2px;
   background-color: #90FF93;
 }
 #box1,#box2 {
