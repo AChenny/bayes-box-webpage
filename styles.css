@@ -24,6 +24,7 @@ div#belCon {
   max-width: 1200px;
   margin: auto;
   font-weight: bold;
+  background-color: black;
 }
 
 div#formula{
@@ -119,6 +120,7 @@ div#bottom {
 
 .tag {
   color: #C0C0C0;
+  font-size: 14pt;
 }
 
 #belCon p {
@@ -127,6 +129,10 @@ div#bottom {
 }
 #belCon div {
   margin: auto auto;
+}
+
+#hTag {
+  color: #666666;
 }
 
 /* Formula styles */

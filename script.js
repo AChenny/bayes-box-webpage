@@ -2,6 +2,7 @@ var pEH = 0.500;
 var pENotH = 0.500;
 var pH = 0.500;
 
+//Todo: Change all vars to lets
 //Formula scripts
 function updateFormula(pEH, pENotH, pH) {
   //Update box1
@@ -237,28 +238,28 @@ $(document).ready(function() {
     //Update tags
     var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
     if (pHE == 0.500) {
-      $('#believeTag').css('color', '#C0C0C0');
-      $('#disbelieveTag').css('color', '#C0C0C0');
+      $('#imTag').css('color', '#000000');
+      $('#probableTag').css('color', '#000000');
     }
     else if (pHE > 0.500) {
-      $('#believeTag').css('color', '#000000');
-      $('#disbelieveTag').css('color', '#C0C0C0');
+      $('#imTag').css('color', '#000000');
+      $('#probableTag').css('color', '#666666');
     }
     else if (pHE < 0.500) {
-      $('#believeTag').css('color', '#C0C0C0');
-      $('#disbelieveTag').css('color', '#000000');
+      $('#imTag').css('color', '#666666');
+      $('#probableTag').css('color', '#666666');
     }
     if (pHE == pH.toFixed(3)) {
-      $('#confirmationTag').css('color', '#C0C0C0');
-      $('#disconfirmationTag').css('color', '#C0C0C0');
+      $('#disTag').css('color', '#000000');
+      $('#confirmedTag').css('color', '#000000');
     }
     else if(pHE > pH.toFixed(3)) {
-      $('#confirmationTag').css('color', '#000000');
-      $('#disconfirmationTag').css('color', '#C0C0C0');
+      $('#disTag').css('color', '#000000');
+      $('#confirmedTag').css('color', '#666666');
     }
     else if (pHE < pH.toFixed(3)) {
-      $('#confirmationTag').css('color', '#C0C0C0');
-      $('#disconfirmationTag').css('color', '#000000');
+      $('#confirmedTag').css('color', '#666666');
+      $('#disTag').css('color', '#666666');
     }
 
     updateLabels(pEH, pENotH, pH)
