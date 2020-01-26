@@ -89,8 +89,10 @@ function updateLabels(pEH, pENotH, pH) {
     }
   };
   let pHESaturation = rgbToHex(parseInt(pHE * 255));
-  
   $('#probableTag').css('color', '#' +  pHESaturation + pHESaturation + pHESaturation);
+  // Change the brightness of the confirmed label on probability change
+  let pHSaturation = rgbToHex(parseInt(pEH * 255));
+  $('#confirmedTag').css('color', '#' +  pHSaturation + pHSaturation + pHSaturation);
   
   //Update inner labels
   //After 10% vertHeight, lower font size by 1px every .01
@@ -257,7 +259,6 @@ $(document).ready(function() {
     var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
     if (pHE == 0.500) {
       $('#imTag').css('color', '#000000');
-      $('#probableTag').css('display', 'inline');
     }
     else if (pHE > 0.500) {
       $('#imTag').css('color', '#000000');
@@ -267,14 +268,11 @@ $(document).ready(function() {
     }
     if (pHE == pH.toFixed(3)) {
       $('#disTag').css('color', '#000000');
-      $('#confirmedTag').css('color', '#000000');
     }
-    else if(pHE > pH.toFixed(3)) {
+    else if (pHE > pH.toFixed(3)) {
       $('#disTag').css('color', '#000000');
-      $('#confirmedTag').css('color', '#666666');
     }
     else if (pHE < pH.toFixed(3)) {
-      $('#confirmedTag').css('color', '#666666');
       $('#disTag').css('color', '#666666');
     }
 
