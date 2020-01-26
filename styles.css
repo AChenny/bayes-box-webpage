@@ -48,6 +48,7 @@ div#bottom {
   border: 0px;
 }
 #leftBar {
+  position: relative;
   background-color: #90FF93;
   width: 405px;
   height: 100%;
@@ -58,6 +59,7 @@ div#bottom {
   border-bottom: 5px solid black;
 }
 #rightBar {
+  position: relative;
   background-color: #90B1FF;
   width: 405px;
   height: 100%;
@@ -94,10 +96,10 @@ div#bottom {
   background-color: black;
 }
 #bar_leftLabel {
-  left: 110px;
+  left: 95px;
 }
 #bar_rightLabel {
-  right: 70px;
+  right: 60px;
 }
 #bar_middleLabel {
   color: #B22222;
@@ -114,6 +116,24 @@ div#bottom {
   text-align: center;
   font-size: 28px;
   height: 40px;
+}
+
+/* Height Rulers */
+#heightRulerLeft {
+  position: absolute;
+  left: -30px;
+  height: 100%;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+#heightRulerRight {
+  position: absolute;
+  right: -30px;
+  height: 100%;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 /* believe/disbelieve--confirmation/disconfirmation tags */
