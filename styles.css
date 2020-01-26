@@ -34,7 +34,6 @@ div#bottom {
   max-width: 1200px;
   margin:auto;
 }
-
 /* Bar Graph */
 #bar {
   width: 815px;
@@ -148,7 +147,7 @@ div#bottom {
 }
 
 #hTag {
-  color: #666666;
+  color: #FFFFFF;
 }
 
 /* Formula styles */
