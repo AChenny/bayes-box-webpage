@@ -1,8 +1,8 @@
+// Global Variables
 var pEH = 0.500;
 var pENotH = 0.500;
 var pH = 0.500;
 
-//Todo: Change all vars to lets
 //Formula scripts
 function updateFormula(pEH, pENotH, pH) {
   //Update box1
@@ -59,15 +59,17 @@ function updateLabels(pEH, pENotH, pH) {
   var maxHeight = 435
   var maxWidth = 800
   var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
-  //Update barGraph labels
 
   //Update inner bar labels
   $('#leftBarPercentage').html(pHE);
   $('#rightBarPercentage').html((1- parseFloat(pHE)).toFixed(3));
 
   //Left and right bargraph labels
-  $('#bar_leftLabel').css('top', ((1-pEH) * maxHeight) + 50);
-  $('#bar_rightLabel').css('top', ((1-pENotH) * maxHeight) + 50);
+  $('#bar_leftLabel').css('height', (((pEH*100)/2) + 3) + '%');
+  $('#bar_rightLabel').css('height', (((pENotH*100)/2) + 3) + '%');
+
+  $('#heightRulerLeft').css('height', (pEH * 100) + '%')
+  $('#heightRulerRight').css('height', (pENotH * 100) + '%')
 
   //Update Middle Label
   $('#bar_middleLabel').css('left', ((pH * maxWidth) + 180) + 'px');
@@ -199,7 +201,6 @@ $(document).ready(function() {
       else if (newLeftLabelTop > 485) {
         newLeftLabelTop = 485;
       }
-      $('#bar_leftLabel').css('top', newLeftLabelTop + 'px');
 
       pEH = getVerticalPercentage(435 - newLeftHeight);
       updateFormula(pEH, pENotH, pH);
@@ -228,7 +229,6 @@ $(document).ready(function() {
       else if (newRightLabelTop > 485) {
         newRightLabelTop = 485;
       }
-      $('#bar_rightLabel').css('top', newRightLabelTop + 'px');
 
       pENotH = getVerticalPercentage(435 - newRightHeight);
       updateFormula(pEH, pENotH, pH);
