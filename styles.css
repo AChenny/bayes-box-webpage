@@ -1,7 +1,3 @@
-body p{
-  height: 100%;
-}
-
 body p, div {
   font-family: Verdana, Geneva, sans-serif;
 }
@@ -96,10 +92,14 @@ div#bottom {
   background-color: black;
 }
 #bar_leftLabel {
-  left: 95px;
+  position: absolute;
+  left: -100px;
+  bottom: 0;
 }
 #bar_rightLabel {
-  right: 60px;
+  position: absolute;
+  right: -135px;
+  bottom: 0;
 }
 #bar_middleLabel {
   color: #B22222;
@@ -107,17 +107,11 @@ div#bottom {
   bottom: 5px;
   left: 580px;
 }
-.bar_label {
-  position: absolute;
-  top: 265px;
-}
-
 #leftBarPercentage, #rightBarPercentage {
   text-align: center;
   font-size: 28px;
   height: 40px;
 }
-
 /* Height Rulers */
 #heightRulerLeft {
   position: absolute;
@@ -126,10 +120,12 @@ div#bottom {
   border-left: 1px solid black;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  bottom: 0;
 }
 #heightRulerRight {
   position: absolute;
   right: -30px;
+  bottom: 0;
   height: 100%;
   border-right: 1px solid black;
   border-top: 1px solid black;
