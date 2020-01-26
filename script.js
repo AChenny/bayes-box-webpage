@@ -50,15 +50,15 @@ function redraw(pEH, pENotH, pH) {
   $('#rightInner').css('height', ((1-pENotH) * maxHeight))
 
   //Box Widths
-  $('#leftBar').css('width', ((pH) * maxWidth) + 5)
-  $('#rightBar').css('width', ((1-pH) * maxWidth) + 5)
+  $('#leftBar').css('width', ((pH) * maxWidth) + 5);
+  $('#rightBar').css('width', ((1-pH) * maxWidth) + 5);
 
 };
 
 function updateLabels(pEH, pENotH, pH) {
-  var maxHeight = 435
-  var maxWidth = 800
-  var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
+  let maxHeight = 435;
+  let maxWidth = 800;
+  let pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
 
   //Update inner bar labels
   $('#leftBarPercentage').html(pHE);
@@ -74,6 +74,24 @@ function updateLabels(pEH, pENotH, pH) {
   //Update Middle Label
   $('#bar_middleLabel').css('left', ((pH * maxWidth) + 180) + 'px');
 
+  // Change the brightness of the probable label on probability change
+  let rgbToHex = function (rgb) { 
+    let hex = Number(rgb).toString(16);
+    if (hex.length < 2) {
+         hex = "0" + hex;
+    }
+    // Define minimum at 100 brightness
+    if (parseInt(hex, 16) < 102) {
+      return 102;
+    }
+    else {
+      return hex;
+    }
+  };
+  let pHESaturation = rgbToHex(parseInt(pHE * 255));
+  
+  $('#probableTag').css('color', '#' +  pHESaturation + pHESaturation + pHESaturation);
+  
   //Update inner labels
   //After 10% vertHeight, lower font size by 1px every .01
   //After 5%, display none
@@ -88,14 +106,14 @@ function updateLabels(pEH, pENotH, pH) {
 
   //Margin top for vertical
   //FIXME Or TODO: Want to set the inner text to the middle of the bar, but for some reason, margin % scale correctly
-  var leftHeight = ($('#leftInner').css('height')).split("px")[0]
+  let leftHeight = ($('#leftInner').css('height')).split("px")[0]
   if (pEH < 0.1) {
     $('#leftBarPercentage').css('margin-top', '0%');
   }
   else {
     $('#leftBarPercentage').css('margin-top', 197.5 - (leftHeight/2));
   }
-  var rightHeight = ($('#rightInner').css('height')).split("px")[0]
+  let rightHeight = ($('#rightInner').css('height')).split("px")[0]
   if (pENotH < 0.1) {
     $('#rightBarPercentage').css('margin-top', '0%');
   }
@@ -239,15 +257,13 @@ $(document).ready(function() {
     var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
     if (pHE == 0.500) {
       $('#imTag').css('color', '#000000');
-      $('#probableTag').css('color', '#000000');
+      $('#probableTag').css('display', 'inline');
     }
     else if (pHE > 0.500) {
       $('#imTag').css('color', '#000000');
-      $('#probableTag').css('color', '#666666');
     }
     else if (pHE < 0.500) {
       $('#imTag').css('color', '#666666');
-      $('#probableTag').css('color', '#666666');
     }
     if (pHE == pH.toFixed(3)) {
       $('#disTag').css('color', '#000000');
