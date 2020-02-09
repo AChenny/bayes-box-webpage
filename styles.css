@@ -100,12 +100,21 @@ div#bottom {
   right: -135px;
   bottom: 0;
 }
-#bar_middleLabel {
-  color: #B22222;
+#bar_middle_left_label, #bar_middle_right_label{
   position: absolute;
-  bottom: 5px;
-  left: 580px;
+  bottom: -35px;
+  
+  color: #B22222;
+  width: inherit;
 }
+#bar_middle_right_label > p{
+  min-width: 80px;
+}
+
+#bar_middle_left_label > p{
+  min-width: 40px;
+}
+
 #leftBarPercentage, #rightBarPercentage {
   text-align: center;
   font-size: 28px;
