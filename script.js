@@ -68,11 +68,16 @@ function updateLabels(pEH, pENotH, pH) {
   $('#bar_leftLabel').css('height', (((pEH*100)/2) + 3) + '%');
   $('#bar_rightLabel').css('height', (((pENotH*100)/2) + 3) + '%');
 
-  $('#heightRulerLeft').css('height', (pEH * 100) + '%')
-  $('#heightRulerRight').css('height', (pENotH * 100) + '%')
+  $('#heightRulerLeft').css('height', (pEH * 100) + '%');
+  $('#heightRulerRight').css('height', (pENotH * 100) + '%');
 
   //Update Middle Label
-  $('#bar_middleLabel').css('left', ((pH * maxWidth) + 180) + 'px');
+  if (pH < 0.05) {
+    $('#bar_middle_left_label > p').css('font-size', ((pH * 20) * 16) + 'px');
+  }
+  if (pH > 0.9) {
+    $('#bar_middle_right_label > p').css('font-size', ((1-pH) * 10) * 16 + 'px');
+  }
 
   // Change the brightness of the probable label on probability change
   let rgbToHex = function (rgb) { 
