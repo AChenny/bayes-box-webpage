@@ -90,6 +90,11 @@ div#bottom {
   cursor: row-resize;
   background-color: black;
 }
+
+.bar_label {
+  font-size: 12pt;
+}
+
 #bar_leftLabel {
   position: absolute;
   left: -100px;
