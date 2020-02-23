@@ -81,24 +81,41 @@ function updateLabels(pEH, pENotH, pH) {
 
   // Change the brightness of the probable label on probability change
   let rgbToHex = function (rgb) { 
+    if (rgb < 50) {
+      rgb = 50;
+    }
+
     let hex = Number(rgb).toString(16);
     if (hex.length < 2) {
          hex = "0" + hex;
     }
-    // Define minimum at 100 brightness
-    if (parseInt(hex, 16) < 102) {
-      return 102;
-    }
-    else {
-      return hex;
-    }
+    return hex;
   };
-  let pHESaturation = rgbToHex(parseInt(pHE * 255));
-  $('#probableTag').css('color', '#' +  pHESaturation + pHESaturation + pHESaturation);
+
+  let probableSaturation = rgbToHex(Math.abs(parseInt(((pHE * 2) - 1) * 255)));
+  $('#probableTag').css('color', '#' +  probableSaturation + probableSaturation + probableSaturation);
   // Change the brightness of the confirmed label on probability change
-  let pHSaturation = rgbToHex(parseInt(((pEH * 2) - pENotH) * 255));
-  $('#confirmedTag').css('color', '#' +  pHSaturation + pHSaturation + pHSaturation);
-  
+  let confirmationSaturation = rgbToHex(Math.abs(parseInt(((pHE - pH) / (1-pH)) * 255)));
+  $('#confirmedTag').css('color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
+  if (pHE == 0.500) {
+    $('#imTag').css('color', '#000000');
+  }
+  else if (pHE > 0.500) {
+    $('#imTag').css('color', '#000000');
+  }
+  else if (pHE < 0.500) {
+    $('#imTag').css('color', '#' +  probableSaturation + probableSaturation + probableSaturation);
+  }
+  if (pHE == pH.toFixed(3)) {
+    $('#disTag').css('color', '#000000');
+  }
+  else if (pHE > pH.toFixed(3)) {
+    $('#disTag').css('color', '#000000');
+  }
+  else if (pHE < pH.toFixed(3)) {
+    $('#disTag').css('color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
+  }
+
   //Update inner labels
   //After 10% vertHeight, lower font size by 1px every .01
   //After 5%, display none
@@ -262,24 +279,6 @@ $(document).ready(function() {
 
     //Update tags
     var pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
-    if (pHE == 0.500) {
-      $('#imTag').css('color', '#000000');
-    }
-    else if (pHE > 0.500) {
-      $('#imTag').css('color', '#000000');
-    }
-    else if (pHE < 0.500) {
-      $('#imTag').css('color', '#666666');
-    }
-    if (pHE == pH.toFixed(3)) {
-      $('#disTag').css('color', '#000000');
-    }
-    else if (pHE > pH.toFixed(3)) {
-      $('#disTag').css('color', '#000000');
-    }
-    else if (pHE < pH.toFixed(3)) {
-      $('#disTag').css('color', '#666666');
-    }
 
     updateLabels(pEH, pENotH, pH)
   });
