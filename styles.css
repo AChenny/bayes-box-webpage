@@ -40,6 +40,7 @@ div#bottom {
   height: 450px;
   overflow: visible;
   margin: 55px auto;
+  margin-top: 30px;
   border: 0px;
 }
 #leftBar {
@@ -107,8 +108,7 @@ div#bottom {
 }
 #bar_middle_left_label, #bar_middle_right_label{
   position: absolute;
-  bottom: -35px;
-  
+  bottom: -57px;
   color: #B22222;
   width: inherit;
 }
@@ -134,14 +134,39 @@ div#bottom {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   bottom: 0;
+  width: 10px;
 }
 #heightRulerRight {
   position: absolute;
   right: -30px;
   bottom: 0;
   height: 100%;
+  width: 10px;
   border-right: 1px solid black;
   border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#widthRulerLeft {
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  right: -3px;
+  bottom: -30px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#widthRulerRight {
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  right: 0;
+  left: -3px;
+  bottom: -30px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   border-bottom: 1px solid black;
 }
 
@@ -149,7 +174,7 @@ div#bottom {
 
 .tag {
   color: #C0C0C0;
-  font-size: 14pt;
+  font-size: 19pt;
 }
 
 #belCon p {
@@ -158,10 +183,16 @@ div#bottom {
 }
 #belCon div {
   margin: auto auto;
+  padding: 10px 0px;
 }
 
 #hTag {
   color: #FFFFFF;
+  font-weight: normal;
+}
+
+#disTag {
+  padding-left: 50px;
 }
 
 /* Formula styles */
@@ -183,7 +214,7 @@ div#bottom {
 }
 
 .formula_pHEText {
-  font-size: 15pt;
+  font-size: 20pt;
 }
 .formula_pHEResult {
   font-size: 15pt;

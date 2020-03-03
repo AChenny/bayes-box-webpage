@@ -13,7 +13,7 @@
     <div id="window">
       <div class="row" id="formula">
           <div style="margin: auto;" class="col-1">
-            <p style="text-align: center;" class="formula_pHEText"><i>P</i>(H<b>|</b>E)</p>
+            <p style="text-align: center;" class="formula_pHEText"><b><i>P</i></b>(H<b>|</b>E)</p>
           </div>
 
           <div style="margin: auto;" class="col-1">
@@ -49,28 +49,31 @@
           </div>
       </div>
       <div class="row justify-content-center" id="belCon">
-        <div class="col-2 mr-0">
-          <span id="hTag" class='tag'>H is:</span>
-        </div>
-        <div class="col-2 ml-0 mr-0">
-          <span id="imTag" class="tag">IM</span><span id="probableTag" class="tag">PROBABLE</span>
+        <div class="col-2 mr-0 pl-50">
+          <span id="hTag" class='tag'><p>          H is:</p></span>
         </div>
         <div class="col-2 ml-0">
+          <span id="imTag" class="tag">IM</span><span id="probableTag" class="tag">PROBABLE</span>
+        </div>
+        <div class="col-2">
           <span id="disTag" class="tag">DIS</span><span id ="confirmedTag" class="tag">CONFIRMED</span>
         </div>
+        <div class ="col-6 ml-0"></div>
       </div>
       <div class="row" id="bottom">
         <div class="col-12" id="barGraph">
-
           <div id="bar">
             <div id="leftBar">
               <div id="bar_leftLabel" class="bar_label">
-                <p><i><b>P</b></i>(E<b>|</b>H)</p>
+                <p>(E<b>|</b>H)</p>
               </div>
               <div id="bar_middle_left_label">
-                <p style="margin: 0; text-align: center;"><b><i>P</i></b>(H)</p>
+                <p style="margin: 0; text-align: center;"></b>(H)</p>
               </div>
               <div id="heightRulerLeft">
+                &nbsp;
+              </div>
+              <div id="widthRulerLeft">
                 &nbsp;
               </div>
               <div id="leftInner">
@@ -85,12 +88,15 @@
             </div>
             <div id="rightBar">
               <div id="bar_rightLabel" class="bar_label">
-                <p><i><b>P</b></i>(E<b>|</b>NOT-H)</p>
+                <p>(E<b>|</b>NOT-H)</p>
               </div>
               <div id="bar_middle_right_label">
-                <p style="margin: 0; text-align: center;"><b><i>P</i></b>(NOT-H)</p>
+                <p style="margin: 0; text-align: center;">(NOT-H)</p>
               </div>
               <div id="heightRulerRight">
+                &nbsp;
+              </div>
+              <div id="widthRulerRight">
                 &nbsp;
               </div>
               <div id="rightInner">
