@@ -29,6 +29,10 @@ div#formula{
   border: black 2px solid;
 }
 
+p#equation_values_denominator_peh, p#equation_values_denominator_ph {
+  display: inline;
+}
+
 div#bottom {
   height: 615px;
   max-width: 1200px;

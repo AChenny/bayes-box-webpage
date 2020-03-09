@@ -8,9 +8,11 @@ function updateFormula(pEH, pENotH, pH) {
   //Update box1
   var box1 = document.getElementById('box1');
   box1.value = pEH.toFixed(3);
+  document.getElementById('equation_values_denominator_peh').innerHTML = pEH.toFixed(3);
   //Update box2
   var box2 = document.getElementById('box2');
   box2.value = pH.toFixed(3);
+  document.getElementById('equation_values_denominator_ph').innerHTML = pH.toFixed(3);
   //Update box3
   var box3 = document.getElementById('box3');
   box3.value = pENotH.toFixed(3);
