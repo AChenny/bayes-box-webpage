@@ -10,7 +10,7 @@
     <title>Bayes Box</title>
   </head>
   <body>
-    <div id="window">
+    <div id="window" class="container">
       <div class="row" id="formula">
           <div style="margin: auto;" class="col-1">
             <p style="text-align: center;" class="formula_pHEText"><b><i>P</i></b>(H<b>|</b>E)</p>
@@ -48,17 +48,24 @@
             <p id="formVar2" class="formula_pHEResult">0.500</p>
           </div>
       </div>
-      <div class="row justify-content-center" id="belCon">
-        <div class="col-2 mr-0 pl-50">
-          <span id="hTag" class='tag'><p>          H is:</p></span>
+      <div class="row" id="belCon">
+        <div class="w-10 ml-5 mr-5 my-auto">
+          <span id="hTag" class='tag'><p>H is:</p></span>
         </div>
-        <div class="col-2 ml-0">
+        <div class="w-20 mr-5 my-auto">
           <span id="imTag" class="tag">IM</span><span id="probableTag" class="tag">PROBABLE</span>
         </div>
-        <div class="col-2">
+        <div class="w-20 mr-5 my-auto">
           <span id="disTag" class="tag">DIS</span><span id ="confirmedTag" class="tag">CONFIRMED</span>
         </div>
-        <div class ="col-6 ml-0"></div>
+        <div class="w-40 my-auto" id="visualEstimatorPartial" >
+          <!-- Visual Estimator -->
+            <p id="visualEstimatorLabel">Visual Estimator Mode</p>
+            <div id="visualEstimatorButton" class="material-switch pull-right">
+                <input id="someSwitchOptionDefault" name="someSwitchOption001" type="checkbox"/>
+                <label for="someSwitchOptionDefault" class="label-default"></label>
+            </div>
+        </div>
       </div>
       <div class="row" id="bottom">
         <div class="col-12" id="barGraph">
@@ -122,6 +129,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
