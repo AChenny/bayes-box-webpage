@@ -302,4 +302,15 @@ $(document).ready(function() {
         updateLabels(pEH, pENotH, pH)
     }
   });
+
+  $(function() {
+    $('#someSwitchOptionDefault').change(function() {
+      if ($(this).prop('checked')) {
+        console.log("Visual Estimator On");
+      }
+      else {
+        console.log("Visual Estimator Off");
+      }
+    })
+  })
 });

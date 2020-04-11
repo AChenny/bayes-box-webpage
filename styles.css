@@ -16,11 +16,11 @@ div#barGraph{
 
 div#belCon {
   border: black 2px solid;
-  width: 1200px;
   max-width: 1200px;
   margin: auto;
   font-weight: bold;
   background-color: black;
+  padding: 10px 0px;
 }
 
 div#formula{
@@ -174,7 +174,7 @@ div#bottom {
   border-bottom: 1px solid black;
 }
 
-/* believe/disbelieve--confirmation/disconfirmation tags */
+/* believe/disbelieve--confirmation/disconfirmation and visual estimator tags */
 
 .tag {
   color: #C0C0C0;
@@ -183,11 +183,9 @@ div#bottom {
 
 #belCon p {
   padding-top: 10px;
-  margin-left: 50px;
 }
 #belCon div {
-  margin: auto auto;
-  padding: 10px 0px;
+  /* margin: auto auto; */
 }
 
 #hTag {
@@ -196,7 +194,21 @@ div#bottom {
 }
 
 #disTag {
-  padding-left: 50px;
+  /* padding-left: 50px; */
+}
+
+#visualEstimatorPartial{
+  margin-left: 80px;
+}
+
+#visualEstimatorButton {
+  margin-left: 30px;
+}
+
+#visualEstimatorLabel {
+  display: inline;
+  font-size: 15pt;
+  color: white;
 }
 
 /* Formula styles */
@@ -248,4 +260,50 @@ div#bottom {
 input {
   border: 1px solid grey;
   font-weight: bold;
+}
+
+/* Switch button style */
+.material-switch > input[type="checkbox"] {
+  display: none;   
+}
+
+.material-switch > label {
+  cursor: pointer;
+  height: 0px;
+  position: relative; 
+  width: 40px;  
+}
+
+.material-switch > label::before {
+  background: rgb(0, 0, 0);
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  content: '';
+  height: 16px;
+  margin-top: -8px;
+  position:absolute;
+  opacity: 0.3;
+  transition: all 0.4s ease-in-out;
+  width: 40px;
+}
+.material-switch > label::after {
+  background: rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  content: '';
+  height: 24px;
+  left: -4px;
+  margin-top: -8px;
+  position: absolute;
+  top: -4px;
+  transition: all 0.3s ease-in-out;
+  width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+  background: inherit;
+  opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+  background: inherit;
+  left: 20px;
 }
