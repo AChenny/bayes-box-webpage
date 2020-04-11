@@ -149,6 +149,19 @@ function updateLabels(pEH, pENotH, pH) {
 
 }
 
+function toggleVisualEstimator(toggleOn) {
+  if (toggleOn) {
+    $('#rightBarPercentage').hide();
+    $('#leftBarPercentage').hide();
+    $('#formVar2').hide();
+  }
+  else {
+    $('#rightBarPercentage').show();
+    $('#leftBarPercentage').show();
+    $('#formVar2').show();
+  }
+}
+
 $(document).ready(function() {
   var horzDragging = false;
   var leftVertDrag = false;
@@ -306,10 +319,10 @@ $(document).ready(function() {
   $(function() {
     $('#someSwitchOptionDefault').change(function() {
       if ($(this).prop('checked')) {
-        console.log("Visual Estimator On");
+        toggleVisualEstimator(1);
       }
       else {
-        console.log("Visual Estimator Off");
+        toggleVisualEstimator(0);
       }
     })
   })
