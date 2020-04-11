@@ -275,12 +275,12 @@ input {
 }
 
 .material-switch > label::before {
-  background: rgb(0, 0, 0);
+  background: rgb(220,220,220);
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   content: '';
   height: 16px;
-  margin-top: -8px;
+  margin-top: -4px;
   position:absolute;
   opacity: 0.3;
   transition: all 0.4s ease-in-out;
@@ -293,7 +293,7 @@ input {
   content: '';
   height: 24px;
   left: -4px;
-  margin-top: -8px;
+  margin-top: -4px;
   position: absolute;
   top: -4px;
   transition: all 0.3s ease-in-out;
