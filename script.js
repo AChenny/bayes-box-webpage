@@ -154,11 +154,13 @@ function toggleVisualEstimator(toggleOn) {
     $('#rightBarPercentage').hide();
     $('#leftBarPercentage').hide();
     $('#formVar2').hide();
+    $('#formulaEquationBoxes').hide();
   }
   else {
     $('#rightBarPercentage').show();
     $('#leftBarPercentage').show();
     $('#formVar2').show();
+    $('#formulaEquationBoxes').show();
   }
 }
 
