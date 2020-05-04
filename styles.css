@@ -184,17 +184,10 @@ div#bottom {
 #belCon p {
   padding-top: 10px;
 }
-#belCon div {
-  /* margin: auto auto; */
-}
 
 #hTag {
   color: #FFFFFF;
   font-weight: normal;
-}
-
-#disTag {
-  /* padding-left: 50px; */
 }
 
 #visualEstimatorPartial{
@@ -212,7 +205,6 @@ div#bottom {
 }
 
 /* Formula styles */
-
 .formulaTop {
   border-bottom: solid black 2px;
   margin-bottom: 0px;
