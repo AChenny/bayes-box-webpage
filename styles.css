@@ -224,13 +224,14 @@ div#bottom {
 .formula_pHEText {
   font-size: 20pt;
 }
+
 .formula_pHEResult {
   font-size: 15pt;
   padding-left: 0px;
 }
 
 .formula_equationText {
-  font-size: 10pt;
+  font-size: 12pt;
 }
 
 .formula_equalsText {
@@ -242,6 +243,11 @@ div#bottom {
   padding: 3px 2px;
   background-color: #90FF93;
 }
+
+#formulaEquationBoxes {
+  
+}
+
 #box1,#box2 {
   background-color: #90FF93;
 }
