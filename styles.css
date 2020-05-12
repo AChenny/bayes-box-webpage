@@ -208,7 +208,7 @@ div#bottom {
 .formulaTop {
   border-bottom: solid black 1px;
   margin-bottom: 0px;
-  text-align: center;
+  /* text-align: center; */
   padding-bottom: 4px;
 }
 
@@ -233,7 +233,7 @@ div#bottom {
 }
 
 .formula_equationText {
-  font-size: 12pt;
+  font-size: 14pt;
 }
 
 .formula_equals_text_container {
