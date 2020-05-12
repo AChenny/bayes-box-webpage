@@ -227,9 +227,12 @@ div#bottom {
   font-size: 20pt;
 }
 
-.formula_pHEResult {
-  font-size: 15pt;
-  padding-left: 0px;
+.formula_pHE_result {
+  font-size: 20pt;
+}
+
+#formula_pHE_result_container {
+  margin: auto;
 }
 
 .formula_equationText {
