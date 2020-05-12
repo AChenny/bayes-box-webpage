@@ -184,17 +184,10 @@ div#bottom {
 #belCon p {
   padding-top: 10px;
 }
-#belCon div {
-  /* margin: auto auto; */
-}
 
 #hTag {
   color: #FFFFFF;
   font-weight: normal;
-}
-
-#disTag {
-  /* padding-left: 50px; */
 }
 
 #visualEstimatorPartial{
@@ -212,17 +205,18 @@ div#bottom {
 }
 
 /* Formula styles */
-
 .formulaTop {
-  border-bottom: solid black 2px;
+  border-bottom: solid black 1px;
   margin-bottom: 0px;
-  text-align: center;
+  /* text-align: center; */
+  padding-bottom: 4px;
 }
 
 .formulaBottom {
   border-top: solid black 1px;
   margin-top: 0px;
   text-align: center;
+  padding-top: 4px;
 }
 
 .entryBox {
@@ -232,24 +226,27 @@ div#bottom {
 .formula_pHEText {
   font-size: 20pt;
 }
+
 .formula_pHEResult {
   font-size: 15pt;
   padding-left: 0px;
 }
 
 .formula_equationText {
-  font-size: 10pt;
+  font-size: 14pt;
 }
 
-.formula_equalsText {
-  text-align: center;
+.formula_equals_text_container {
+  margin: auto;
 }
+
 
 .formulaTop > span > p {
   display: inline;
   padding: 3px 2px;
   background-color: #90FF93;
 }
+
 #box1,#box2 {
   background-color: #90FF93;
 }
