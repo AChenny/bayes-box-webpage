@@ -236,9 +236,10 @@ div#bottom {
   font-size: 12pt;
 }
 
-.formula_equalsText {
-  text-align: center;
+.formula_equals_text_container {
+  margin: auto;
 }
+
 
 .formulaTop > span > p {
   display: inline;
