@@ -33,6 +33,10 @@ p#equation_values_denominator_peh, p#equation_values_denominator_ph {
   display: inline;
 }
 
+#formula_variables_denominator_ph_phe_container {
+  margin-right: 5px;
+}
+
 div#bottom {
   height: 615px;
   max-width: 1200px;
@@ -255,7 +259,7 @@ div#bottom {
 }
 #box3 {
   background-color: #90B1FF;
-
+  margin-left: 5px;
 }
 input {
   border: 1px solid grey;
