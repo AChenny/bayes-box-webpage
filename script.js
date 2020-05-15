@@ -1,3 +1,6 @@
+// Import constants 
+import * as constants from './constants.js';
+
 // Global Variables
 var pEH = 0.500;
 var pENotH = 0.500;
@@ -24,8 +27,6 @@ function updateFormula(pEH, pENotH, pH) {
   var pHE = (pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)));
   formVar2.innerHTML = pHE.toFixed(3);
 }
-
-//--------------------
 
 function getVerticalPercentage(height) {
   var heightInt = height / 435;
@@ -83,10 +84,6 @@ function updateLabels(pEH, pENotH, pH) {
 
   // Change the brightness of the probable label on probability change
   let rgbToHex = function (rgb) { 
-    if (rgb < 50) {
-      rgb = 50;
-    }
-
     let hex = Number(rgb).toString(16);
     if (hex.length < 2) {
          hex = "0" + hex;
@@ -96,8 +93,10 @@ function updateLabels(pEH, pENotH, pH) {
 
   let probableSaturation = rgbToHex(Math.abs(parseInt(((pHE * 2) - 1) * 255)));
   $('#probableTag').css('color', '#' +  probableSaturation + probableSaturation + probableSaturation);
+  
   // Change the brightness of the confirmed label on probability change
-  let confirmationSaturation = rgbToHex(Math.abs(parseInt(((pHE - pH) / (1-pH)) * 255)));
+  let confirmationSaturation = rgbToHex(Math.abs(parseInt((Math.abs(pEH - pENotH)) * 255)));
+  
   $('#confirmedTag').css('color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
   if (pHE == 0.500) {
     $('#imTag').css('color', '#000000');
