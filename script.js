@@ -85,6 +85,7 @@ function updateLabels(pEH, pENotH, pH) {
   // Change the brightness of the probable label on probability change
   let rgbToHex = function (rgb) { 
     let hex = Number(rgb).toString(16);
+    console.log(hex);
     if (hex.length < 2) {
          hex = "0" + hex;
     }
@@ -98,7 +99,9 @@ function updateLabels(pEH, pENotH, pH) {
   let confirmationCalculation = pEH/pENotH;
   confirmationCalculation = Math.min(confirmationCalculation, constants.MAX_CONFIRMATION_SATURATION);
   confirmationCalculation = Math.max(confirmationCalculation, constants.MIN_CONFIRMATION_SATURATION);
-  let confirmationSaturation = rgbToHex(parseInt((confirmationCalculation) * 255));
+  // New max/mins are at 0.1 and 10 so need to set that as the normalized values
+
+  let confirmationSaturation = rgbToHex(parseInt((confirmationCalculation) * (255/10)));
   
   $('#confirmedTag').css('color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
   if (pHE == 0.500) {
