@@ -83,6 +83,7 @@ div#bottom {
   height: 215px;
   /* border-right: 1px solid black; */
 }
+
 #verticalDivisionBar {
   width: 5px;
   height: 100%;
@@ -204,6 +205,20 @@ div#bottom {
 #negative_result_mode_toggle_switch label {
   margin-bottom: 13px;
 }
+
+#calculator_estimator_toggle_switch {
+  display: inline;
+}
+
+#calculator_estimator_toggle_switch label {
+  margin-bottom: 20px;
+}
+
+#calculator_estimator_toggle_switch_container * {
+  margin: 10px 0px 10px 20px;
+}
+
+
 
 .tag {
   color: #C0C0C0;
