@@ -45,26 +45,29 @@
           </div>
       </div>
       <div class="row" id="belCon">
-        <div class="w-10 ml-5 mr-5 my-auto">
-          <span id="hTag" class='tag'><p>H is:</p></span>
-        </div>
-        <div class="w-20 mr-5 my-auto">
-          <span id="disTag" class="tag">DIS</span><span id ="confirmedTag" class="tag">CONFIRMED</span>
-        </div>
-        <div class="w-20 mr-5 ml-4 my-auto">
-          <span id="imTag" class="tag">IM</span><span id="probableTag" class="tag">PROBABLE</span>
-        </div>
-        <div class="w-40 my-auto" id="visualEstimatorPartial" >
-          <!-- Visual Estimator -->
-          <span style="color: White;">
-            <i class="fas fa-calculator fa-3x"></i>
-          </span>
-          <!-- <p id="visualEstimatorLabel">Estimator Mode</p> -->
-            <div id="visualEstimatorButton" class="material-switch pull-right">
-                <input id="someSwitchOptionDefault" name="someSwitchOption001" type="checkbox"/>
-                <label for="someSwitchOptionDefault" class="label-default"></label>
-            </div>
-        </div>
+        <table id="believe_confirmation_table_container">
+          <tr>
+            <td colspan=2>
+              Negative Toggle
+            </td>
+            <td>
+              Evidence Strength Light
+            </td>
+            <td>
+              Prior Prob Light
+            </td>
+            <td>
+              Updated prob light
+            </td>
+          </tr>
+          <tr>
+            <td>Calculator tog</td>
+            <td>Randomize tog</td>
+            <td>Evidence strength value</td>
+            <td>prior prob val</td>
+            <td>updated prob toggle</td>
+          </tr>
+        </table>
       </div>
       <div class="row" id="bottom">
         <div class="col-12" id="barGraph">

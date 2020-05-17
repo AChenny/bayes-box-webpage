@@ -19,8 +19,6 @@ div#belCon {
   max-width: 1200px;
   margin: auto;
   font-weight: bold;
-  background-color: black;
-  padding: 10px 0px;
 }
 
 div#formula{
@@ -179,6 +177,15 @@ div#bottom {
 }
 
 /* believe/disbelieve--confirmation/disconfirmation and visual estimator tags */
+
+#believe_confirmation_table_container {
+  width: 100%; 
+  height: 100%;
+}
+
+#believe_confirmation_table_container  td {
+  border: 2px solid black;
+}
 
 .tag {
   color: #C0C0C0;

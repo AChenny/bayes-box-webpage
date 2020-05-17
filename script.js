@@ -100,7 +100,6 @@ function updateLabels(pEH, pENotH, pH) {
   confirmationCalculation = Math.min(confirmationCalculation, constants.MAX_CONFIRMATION_SATURATION);
   confirmationCalculation = Math.max(confirmationCalculation, constants.MIN_CONFIRMATION_SATURATION);
   // New max/mins are at 0.1 and 10 so need to set that as the normalized values
-
   let confirmationSaturation = rgbToHex(parseInt((confirmationCalculation) * (255/10)));
   
   $('#confirmedTag').css('color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
