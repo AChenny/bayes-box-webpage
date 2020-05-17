@@ -323,7 +323,7 @@ $(document).ready(function() {
   });
 
   $(function() {
-    $('#someSwitchOptionDefault').change(function() {
+    $('#negative_result_mode_toggle_switch input').change(function() {
       if ($(this).prop('checked')) {
         toggleVisualEstimator(1);
       }

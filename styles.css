@@ -187,6 +187,24 @@ div#bottom {
   border: 2px solid black;
 }
 
+#negative_result_mode_toggle_container p {
+  display: inline-block;
+  font-size: 18pt;
+  font-weight: normal;
+}
+
+#negative_result_mode_toggle_switch {
+  display: inline;
+}
+
+#negative_result_mode_toggle_container * {
+  margin-left: 15px;
+}
+
+#negative_result_mode_toggle_switch label {
+  margin-bottom: 13px;
+}
+
 .tag {
   color: #C0C0C0;
   font-size: 19pt;
