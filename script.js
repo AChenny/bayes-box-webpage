@@ -82,28 +82,32 @@ function updateLabels(pEH, pENotH, pH) {
     $('#bar_middle_right_label > p').css('font-size', ((1-pH) * 10) * 16 + 'px');
   }
 
-  // Change the brightness of the probable label on probability change
+  // Change the brightness of the prior probability light on probability change
   let rgbToHex = function (rgb) { 
     let hex = Number(rgb).toString(16);
-    console.log(hex);
     if (hex.length < 2) {
          hex = "0" + hex;
     }
     return hex;
   };
-
-  let probableSaturation = rgbToHex(Math.abs(parseInt(((pHE * 2) - 1) * 255)));
-  $('#probableTag').css('color', '#' +  probableSaturation + probableSaturation + probableSaturation);
+// 
+  let probableSaturation = rgbToHex(parseInt((pH * 255)));
+  $('#believe_confirmation_prior_probability_light').css('background-color', '#' +  probableSaturation + probableSaturation + probableSaturation);
   
-  // Change the brightness of the confirmed label on probability change
+  // Change the brightness of the evidence strength light on probability change
   let confirmationCalculation = pEH/pENotH;
+  $('#believe_confirmation_evidence_strength_value_span').text(confirmationCalculation.toFixed(3));
   confirmationCalculation = Math.min(confirmationCalculation, constants.MAX_CONFIRMATION_SATURATION);
   confirmationCalculation = Math.max(confirmationCalculation, constants.MIN_CONFIRMATION_SATURATION);
   // New max/mins are at 0.1 and 10 so need to set that as the normalized values
-
   let confirmationSaturation = rgbToHex(parseInt((confirmationCalculation) * (255/10)));
+  $('#believe_confirmation_evidence_strength_light').css('background-color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
   
-  $('#confirmedTag').css('color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
+  // Change the brightness of the updated probability light and the text to inverse
+  let updatedProbabilitySaturation = rgbToHex(parseInt(pHE*255));
+  $('#believe_confirmation_updated_probability_light').css('background-color', '#' + updatedProbabilitySaturation + updatedProbabilitySaturation + updatedProbabilitySaturation);
+  $('#believe_confirmation_updated_probability_light_text').css('color', '#' + (255-updatedProbabilitySaturation) + (255-updatedProbabilitySaturation) + (255-updatedProbabilitySaturation));
+
   if (pHE == 0.500) {
     $('#imTag').css('color', '#000000');
   }
@@ -324,7 +328,7 @@ $(document).ready(function() {
   });
 
   $(function() {
-    $('#someSwitchOptionDefault').change(function() {
+    $('#calculator_estimator_toggle_switch').change(function() {
       if ($(this).prop('checked')) {
         toggleVisualEstimator(1);
       }

@@ -45,26 +45,50 @@
           </div>
       </div>
       <div class="row" id="belCon">
-        <div class="w-10 ml-5 mr-5 my-auto">
-          <span id="hTag" class='tag'><p>H is:</p></span>
-        </div>
-        <div class="w-20 mr-5 my-auto">
-          <span id="disTag" class="tag">DIS</span><span id ="confirmedTag" class="tag">CONFIRMED</span>
-        </div>
-        <div class="w-20 mr-5 ml-4 my-auto">
-          <span id="imTag" class="tag">IM</span><span id="probableTag" class="tag">PROBABLE</span>
-        </div>
-        <div class="w-40 my-auto" id="visualEstimatorPartial" >
-          <!-- Visual Estimator -->
-          <span style="color: White;">
-            <i class="fas fa-calculator fa-3x"></i>
-          </span>
-          <!-- <p id="visualEstimatorLabel">Estimator Mode</p> -->
-            <div id="visualEstimatorButton" class="material-switch pull-right">
-                <input id="someSwitchOptionDefault" name="someSwitchOption001" type="checkbox"/>
-                <label for="someSwitchOptionDefault" class="label-default"></label>
-            </div>
-        </div>
+        <table id="believe_confirmation_table_container">
+          <tr>
+            <td id="negative_result_mode_toggle_container" colspan=2>
+              <p><b><i>P</i></b>(H<b>|</b>E)</p> 
+                <div id="negative_result_mode_toggle_switch_container" class="material-switch">
+                  <input id="negative_result_mode_toggle_switch" name="someSwitchOption001" type="checkbox"/>
+                  <label for="negative_result_mode_toggle_switch" class="label-default"></label>
+                </div>
+              <p><b><i>P</i></b>(H<b>|</b>&not;E)</p>
+            </td>
+            <td id="evidence_strength_container" class="believeConfirmation" rowspan=2>
+              <div id="believe_confirmation_evidence_strength_light">
+                <p id="believe_confirmation_evidence_strength_light_text"><b><i>P</i></b>(E<b>|</b>H)/<b><i>P</i></b>(E<b>|</b>&not;H)</p>
+              </div>
+              <p class="believeConfirmationValues" id="believe_confirmation_evidence_strength_value">Evidence strength=<span id="believe_confirmation_evidence_strength_value_span">NNN</span></p>
+            </td>
+            <td id="prior_probability_container" class="believeConfirmation" rowspan=2>
+              <div id="believe_confirmation_prior_probability_light">
+                <p id="believe_confirmation_prior_probability_light_text"><b><i>P</i></b>(H)</p>
+              </div>
+              <p class="believeConfirmationValues" id="believe_confirmation_prior_probability_value">Prior Probability</p>
+            </td>
+            <td id="updated_probability_container" class="believeConfirmation" rowspan=2>
+              <div id="believe_confirmation_updated_probability_light">
+                <p id="believe_confirmation_updated_probability_light_text">P(H|E)</p>
+              </div>
+              <p class="believeConfirmationValues" id="believe_confirmation_updated_probability_value">Updated Probability</p>
+            </td>
+          </tr>
+          <tr>
+            <td id="calculator_estimator_toggle_container">
+              <i class="fas fa-calculator fa-3x"></i>
+              <div id="calculator_estimator_toggle_switch_container" class="material-switch">
+                <input id="calculator_estimator_toggle_switch" name="someSwitchOption001" type="checkbox"/>
+                <label for="calculator_estimator_toggle_switch" class="label-default"></label>
+              </div>
+              <i class="fas fa-eye fa-3x"></i>
+            </td>
+            <td id="randomize_button_container">
+              <button id="randomize_button" type="button" class="btn btn-primary btn-circle btn-sm"></button>
+              <p>Randomize</p>
+            </td>
+          </tr>
+        </table>
       </div>
       <div class="row" id="bottom">
         <div class="col-12" id="barGraph">
