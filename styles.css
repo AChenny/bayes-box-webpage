@@ -218,7 +218,18 @@ div#bottom {
   margin: 10px 0px 10px 20px;
 }
 
+#randomize_button_container {
+  padding-top: 10px;
+  align-items: center;
+}
+#randomize_button_container p{
+  text-align: center;
+}
 
+#randomize_button {
+  display: block;
+  margin: auto;
+}
 
 .tag {
   color: #C0C0C0;
@@ -349,3 +360,13 @@ input {
 .material-switch > input[type="checkbox"]:checked + label::after {
   left: 20px;
 }
+
+/* Circular button style */
+.btn-circle.btn-sm { 
+  width: 30px; 
+  height: 30px; 
+  padding: 6px 0px; 
+  border-radius: 15px; 
+  font-size: 8px; 
+  text-align: center; 
+} 
