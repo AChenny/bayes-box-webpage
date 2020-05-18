@@ -90,8 +90,8 @@ function updateLabels(pEH, pENotH, pH) {
     }
     return hex;
   };
-
-  let probableSaturation = rgbToHex(Math.abs(parseInt(((pHE * 2) - 1) * 255)));
+// 
+  let probableSaturation = rgbToHex(parseInt((pH * 255)));
   $('#believe_confirmation_prior_probability_light').css('background-color', '#' +  probableSaturation + probableSaturation + probableSaturation);
   
   // Change the brightness of the evidence strength light on probability change
@@ -328,7 +328,7 @@ $(document).ready(function() {
   });
 
   $(function() {
-    $('#negative_result_mode_toggle_switch').change(function() {
+    $('#calculator_estimator_toggle_switch').change(function() {
       if ($(this).prop('checked')) {
         toggleVisualEstimator(1);
       }
