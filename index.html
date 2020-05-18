@@ -48,21 +48,30 @@
         <table id="believe_confirmation_table_container">
           <tr>
             <td id="negative_result_mode_toggle_container" colspan=2>
-              <p>P(H|E)</p> 
+              <p><b><i>P</i></b>(H<b>|</b>E)</p> 
                 <div id="negative_result_mode_toggle_switch_container" class="material-switch">
                   <input id="negative_result_mode_toggle_switch" name="someSwitchOption001" type="checkbox"/>
                   <label for="negative_result_mode_toggle_switch" class="label-default"></label>
                 </div>
-              <p>P(H|&not;E)</p>
+              <p><b><i>P</i></b>(H<b>|</b>&not;E)</p>
             </td>
-            <td>
-              Evidence Strength Light
+            <td id="evidence_strength_container" class="believeConfirmation" rowspan=2>
+              <div id="believe_confirmation_evidence_strength_light">
+                <p id="believe_confirmation_evidence_strength_light_text"><b><i>P</i></b>(E<b>|</b>H)/<b><i>P</i></b>(E<b>|</b>&not;H)</p>
+              </div>
+              <p class="believeConfirmationValues" id="believe_confirmation_evidence_strength_value">Evidence strength=<span>NNN</span></p>
             </td>
-            <td>
-              Prior Prob Light
+            <td id="prior_probability_container" class="believeConfirmation" rowspan=2>
+              <div id="believe_confirmation_prior_probability_light">
+                <p id="believe_confirmation_prior_probability_light_text"><b><i>P</i></b>(H)</p>
+              </div>
+              <p class="believeConfirmationValues" id="believe_confirmation_prior_probability_value">Prior Probability</p>
             </td>
-            <td>
-              Updated prob light
+            <td id="updated_probability_container" class="believeConfirmation" rowspan=2>
+              <div id="believe_confirmation_updated_probability_light">
+                <p id="believe_confirmation_updated_probability_light_text">P(H|E)</p>
+              </div>
+              <p class="believeConfirmationValues" id="believe_confirmation_updated_probability_value">Updated Probability</p>
             </td>
           </tr>
           <tr>
@@ -78,9 +87,6 @@
               <button id="randomize_button" type="button" class="btn btn-primary btn-circle btn-sm"></button>
               <p>Randomize</p>
             </td>
-            <td>Evidence strength value</td>
-            <td>prior prob val</td>
-            <td>updated prob toggle</td>
           </tr>
         </table>
       </div>
