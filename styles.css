@@ -283,6 +283,7 @@ div#bottom {
   font-size: 18pt;
   text-align: center;
   margin-bottom: 0px;
+  color: rgb(127,127,127);
 }
 
 #believe_confirmation_updated_probability_value {
