@@ -93,10 +93,11 @@ function updateLabels(pEH, pENotH, pH) {
 // 
   let probableSaturation = rgbToHex(parseInt((pH * 255)));
   $('#believe_confirmation_prior_probability_light').css('background-color', '#' +  probableSaturation + probableSaturation + probableSaturation);
+  $('#believe_confirmation_prior_probability_light_text').css('color', '#' +  rgbToHex(parseInt(((1-pH) * 255))) + rgbToHex(parseInt(((1-pH) * 255))) + rgbToHex(parseInt(((1-pH) * 255))));
   
   // Change the brightness of the evidence strength light on probability change
   let confirmationCalculation = pEH/pENotH;
-  $('#believe_confirmation_evidence_strength_value_span').text(confirmationCalculation.toFixed(3));
+  $('#believe_confirmation_evidence_strength_value_span').text(confirmationCalculation.toFixed(2));
   confirmationCalculation = Math.min(confirmationCalculation, constants.MAX_CONFIRMATION_SATURATION);
   confirmationCalculation = Math.max(confirmationCalculation, constants.MIN_CONFIRMATION_SATURATION);
   // New max/mins are at 0.1 and 10 so need to set that as the normalized values
@@ -106,7 +107,7 @@ function updateLabels(pEH, pENotH, pH) {
   // Change the brightness of the updated probability light and the text to inverse
   let updatedProbabilitySaturation = rgbToHex(parseInt(pHE*255));
   $('#believe_confirmation_updated_probability_light').css('background-color', '#' + updatedProbabilitySaturation + updatedProbabilitySaturation + updatedProbabilitySaturation);
-  $('#believe_confirmation_updated_probability_light_text').css('color', '#' + (255-updatedProbabilitySaturation) + (255-updatedProbabilitySaturation) + (255-updatedProbabilitySaturation));
+  $('#believe_confirmation_updated_probability_light_text').css('color', '#' + rgbToHex(parseInt((1-pHE)*255)) + rgbToHex(parseInt((1-pHE)*255)) + rgbToHex(parseInt((1-pHE)*255)));
 
   if (pHE == 0.500) {
     $('#imTag').css('color', '#000000');
