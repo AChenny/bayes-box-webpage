@@ -55,7 +55,6 @@ function redraw(pEH, pENotH, pH) {
   //Box Widths
   $('#leftBar').css('width', ((pH) * maxWidth) + 5);
   $('#rightBar').css('width', ((1-pH) * maxWidth) + 5);
-
 };
 
 function updateLabels(pEH, pENotH, pH) {
@@ -174,6 +173,16 @@ function toggleVisualEstimator(toggleOn) {
   }
 }
 
+function randomizeButton() {
+  console.log("TEST");
+  pEH = parseFloat(Math.random(1000).toFixed(3));
+  pH = parseFloat(Math.random(1000).toFixed(3));
+  pENotH = parseFloat(Math.random(1000).toFixed(3));
+  redraw(pEH, pENotH, pH);
+  updateFormula(pEH, pENotH, pH);
+  updateLabels(pEH, pENotH, pH)
+}
+
 $(document).ready(function() {
   var horzDragging = false;
   var leftVertDrag = false;
@@ -208,6 +217,9 @@ $(document).ready(function() {
     rightVertDrag = true;
     startPosY = e.pageY - $('#bar').offset().top;
   });
+
+  $('#randomize_button').click(randomizeButton);
+  
 
   $(document).mousemove(function(e){
     //updateBargraph
