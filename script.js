@@ -174,7 +174,6 @@ function toggleVisualEstimator(toggleOn) {
 }
 
 function randomizeButton() {
-  console.log("TEST");
   pEH = parseFloat(Math.random(1000).toFixed(3));
   pH = parseFloat(Math.random(1000).toFixed(3));
   pENotH = parseFloat(Math.random(1000).toFixed(3));
