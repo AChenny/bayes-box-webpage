@@ -15,10 +15,8 @@ div#barGraph{
 }
 
 div#belCon {
-  /* border: black 2px solid; */
   max-width: 1200px;
   margin: auto;
-  font-weight: bold;
 }
 
 div#formula{
@@ -92,6 +90,7 @@ div#bottom {
   cursor: col-resize;
   border: 0px;
 }
+
 #leftDivisionBar, #rightDivisionBar {
   width: 100%;
   height: 5px;
@@ -108,17 +107,20 @@ div#bottom {
   left: -100px;
   bottom: 0;
 }
+
 #bar_rightLabel {
   position: absolute;
   right: -135px;
   bottom: 0;
 }
+
 #bar_middle_left_label, #bar_middle_right_label{
   position: absolute;
   bottom: -57px;
   color: #B22222;
   width: inherit;
 }
+
 #bar_middle_right_label > p{
   min-width: 80px;
 }
@@ -191,20 +193,17 @@ div#bottom {
 #negative_result_mode_toggle_container p {
   display: inline-block;
   font-size: 18pt;
-  font-weight: normal;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 0px;
 }
 
 #negative_result_mode_toggle_switch_container {
   display: inline;
 }
 
-#negative_result_mode_toggle_container p {
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
 #negative_result_mode_toggle_switch_container label {
-  margin-bottom: 13px;
+  margin-bottom: 15px;
 }
 
 #calculator_estimator_toggle_switch_container {
@@ -216,7 +215,7 @@ div#bottom {
 }
 
 #calculator_estimator_toggle_container * {
-  margin: 10px 0px 10px 10px;
+  margin-left: 10px;
 }
 
 #randomize_button_container p{
@@ -234,12 +233,18 @@ div#bottom {
 
 .believeConfirmationValues {
   background-color: white;
+  margin-bottom: 0px;
+  position: absolute;
+  bottom: 0px;
 }
 
 #believe_confirmation_evidence_strength_light {
   background-color: white;
   width: 90%;
   float: right;
+  padding: 0px;
+  margin-bottom: 10px;
+  padding-top: 5px;
 }
 
 #believe_confirmation_evidence_strength_light_text {
@@ -249,15 +254,22 @@ div#bottom {
 }
 
 #believe_confirmation_evidence_strength_value {
-  float: right;
   width: 90%;
   text-align: center;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
 }
 
 #believe_confirmation_prior_probability_light {
   background-color: white;
   width: 90%;
   float: left;
+  padding: 0px;
+  margin-bottom: 10px;
+  padding-top: 5px;
 }
 
 #believe_confirmation_prior_probability_light_text {
@@ -267,43 +279,57 @@ div#bottom {
 }
 
 #believe_confirmation_prior_probability_value {
-  float: left;
   width: 90%;
+  bottom: 0;
+  left: 0;
   text-align: center;
+  position: absolute;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
 }
 
 #believe_confirmation_updated_probability_light {
   background-color: white;
   width: 80%;
-  margin: auto;
-  padding-bottom: 12px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 1px;
 }
 
 #believe_confirmation_updated_probability_light_text {
   font-size: 18pt;
   text-align: center;
-  margin-bottom: 0px;
   color: rgb(127,127,127);
 }
 
 #believe_confirmation_updated_probability_value {
   width: 80%;
   text-align: center;
-  margin: auto;
-  margin-bottom: 11px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 
 /* Containers for middle section */
 #prior_probability_container {
   width: 20%;
+  position: relative;
 }
 
 #evidence_strength_container {
   width: 30%;
+  position: relative;
 }
 
 #updated_probability_container{
   width: 20%;
+  position: relative;
 }
 
 #calculator_estimator_toggle_container {
@@ -315,14 +341,13 @@ div#bottom {
   align-items: center;
   width: 10%;
 }
+#randomize_button_text {
+  margin-bottom: 0px;
+}
 
 .tag {
   color: #C0C0C0;
   font-size: 19pt;
-}
-
-#belCon p {
-  padding-top: 10px;
 }
 
 #hTag {
