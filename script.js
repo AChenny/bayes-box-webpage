@@ -201,9 +201,10 @@ function _updateLights(probabilityValues) {
   // Change the brightness of the evidence strength light on probability change
   let evidenceStrengthCalculation = probabilityValues['pEH']/probabilityValues['pENotH'];
 
-  let confirmationSaturation = rgbToHex(parseInt(getPosInLogspace(evidenceStrengthCalculation)));
+  let confirmationSaturation = getPosInLogspace(evidenceStrengthCalculation);
   $('#believe_confirmation_evidence_strength_value_span').text(evidenceStrengthCalculation.toFixed(2));
-  $('#believe_confirmation_evidence_strength_light').css('background-color', '#' +  confirmationSaturation + confirmationSaturation + confirmationSaturation);
+  $('#believe_confirmation_evidence_strength_light').css('background-color', '#' + rgbToHex(parseInt(confirmationSaturation)) + rgbToHex(parseInt(confirmationSaturation)) + rgbToHex(parseInt(confirmationSaturation)));
+  $('#believe_confirmation_evidence_strength_light_text').css('color', '#' + (rgbToHex(255-parseInt(confirmationSaturation))) + (rgbToHex(255-parseInt(confirmationSaturation))) + (rgbToHex(255-parseInt(confirmationSaturation))));
 
   // Change the brightness of the updated probability light and the text to inverse
   let updatedProbabilitySaturation = rgbToHex(parseInt(probabilityValues['pHE']*255));
