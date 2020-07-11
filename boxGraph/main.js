@@ -1,4 +1,5 @@
 // Main functions to create the box graph and update it with percentage
+import * as interactivity from './interactivity.js';
 
 // Globals
 const canvas = document.getElementById('boxGraph');
@@ -23,11 +24,15 @@ const RIGHT_BAR_LINE_COLOR = '#000000'
 const MIDDLE_BAR_LINE_THICKNESS = 4;
 const MIDDLE_BAR_LINE_COLOR = '#B22222';
 
+// Interactivity positions
+var leftY = undefined; 
+var rightY = undefined; 
+var middleX = undefined; 
 
 // Main update function
 function update() {
     clear();
-    
+    // interactivity.test();
     drawBoxGraph();
     drawBorder();
     
@@ -66,6 +71,7 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.moveTo(0, leftBarHeight);
     ctx.lineTo(leftBarWidth, leftBarHeight);
     ctx.stroke();
+    leftY = leftBarHeight;
     
     // Draw the right bar
     let rightBarHeight = (1-pENotH) * CANVAS_HEIGHT;
@@ -81,17 +87,21 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.moveTo(rightBarWidth, rightBarHeight);
     ctx.lineTo(CANVAS_WIDTH, rightBarHeight);
     ctx.stroke();
+    rightY = rightBarHeight;
     
     // TODO: Draw the middle line
-    let middleLineXCoordinate = pH * CANVAS_WIDTH;
+    let middleLineX = pH * CANVAS_WIDTH;
     ctx.strokeStyle = MIDDLE_BAR_LINE_COLOR;
     ctx.lineWidth = MIDDLE_BAR_LINE_THICKNESS;
     ctx.beginPath();
-    ctx.moveTo(middleLineXCoordinate, 0);
-    ctx.lineTo(middleLineXCoordinate, CANVAS_HEIGHT);
+    ctx.moveTo(middleLineX, 0);
+    ctx.lineTo(middleLineX, CANVAS_HEIGHT);
     ctx.stroke();
-
+    middleX = middleLineX;
 }
+
+canvas.addEventListener('mousemove', function() {
+    interactivity.handleMouseCursor(event, leftY, rightY, middleX)});
 
 update();
 
