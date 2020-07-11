@@ -50,9 +50,11 @@ function drawBorder() {
 // Input: P(E|H) floating point value, P(E|Not-H) floating point value, P(H) floating point value
 // Example: drawBoxGraph(0.32, 0.65, 0.64) draws a graph with left bar 32% height, right bar 65% height, and middle divider 64% to the right
 function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
+    // Note: When using the percentages and using it in the canvas, it must be inverted
+
     // Draw the left bar
-    let leftBarHeight = pEH * CANVAS_HEIGHT;
-    let leftBarWidth = pH * CANVAS_WIDTH;
+    let leftBarHeight = (1-pEH) * CANVAS_HEIGHT;
+    let leftBarWidth = (1-pH) * CANVAS_WIDTH;
     
     ctx.fillStyle = LEFT_BAR_COLOR;
     ctx.fillRect(0, leftBarHeight, leftBarWidth, CANVAS_HEIGHT);
@@ -66,8 +68,8 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.stroke();
     
     // Draw the right bar
-    let rightBarHeight = pENotH * CANVAS_HEIGHT;
-    let rightBarWidth = pH * CANVAS_WIDTH;
+    let rightBarHeight = (1-pENotH) * CANVAS_HEIGHT;
+    let rightBarWidth = (1-pH) * CANVAS_WIDTH;
     
     ctx.fillStyle = RIGHT_BAR_COLOR;
     ctx.fillRect(rightBarWidth, rightBarHeight, CANVAS_WIDTH, CANVAS_HEIGHT);
