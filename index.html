@@ -92,57 +92,7 @@
       </div>
       <div class="row" id="bottom">
         <div class="col-12" id="barGraph">
-          <div id="bar">
-            <div id="leftBar">
-              <div id="bar_leftLabel" class="bar_label">
-                <p>(E<b>|</b>H)</p>
-              </div>
-              <div id="bar_middle_left_label">
-                <p style="margin: 0; text-align: center;"></b>(H)</p>
-              </div>
-              <div id="heightRulerLeft">
-                &nbsp;
-              </div>
-              <div id="widthRulerLeft">
-                &nbsp;
-              </div>
-              <div id="leftInner">
-
-              </div>
-              <div id="leftDivisionBar">
-
-              </div>
-              <p id="leftBarPercentage">
-
-              </p>
-            </div>
-            <div id="rightBar">
-              <div id="bar_rightLabel" class="bar_label">
-                <p>(E<b>|</b>&not;H)</p>
-              </div>
-              <div id="bar_middle_right_label">
-                <p style="margin: 0; text-align: center;">(&not;H)</p>
-              </div>
-              <div id="heightRulerRight">
-                &nbsp;
-              </div>
-              <div id="widthRulerRight">
-                &nbsp;
-              </div>
-              <div id="rightInner">
-
-              </div>
-              <div id="rightDivisionBar">
-
-              </div>
-              <p id="rightBarPercentage">
-
-              </p>
-            </div>
-            <div id="verticalDivisionBar">
-
-            </div>
-          </div>
+          <canvas id=boxGraph width=800 height=450></canvas>
         </div>
         <p style="color: 'grey'; opacity: 0.5">&copy Lyle Crawford</p>
       </div>
@@ -154,5 +104,6 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type = "module" src="script.js"></script>
+    <script type = "module" src="boxGraph/main.js"></script>
   </body>
 </html>

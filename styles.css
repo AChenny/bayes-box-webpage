@@ -12,6 +12,9 @@ div#barGraph{
   height: 570px;
   width: 600px;
   border: black 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div#belCon {
@@ -38,6 +41,11 @@ div#bottom {
   max-width: 1200px;
   margin:auto;
 }
+/* Box Graph */
+#boxGraph {
+  /* border: 3px solid black; */
+}
+
 /* Bar Graph */
 #bar {
   width: 815px;
