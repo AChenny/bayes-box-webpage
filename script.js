@@ -70,9 +70,6 @@ function updateLabels(pEH, pENotH, pH) {
   $('#bar_leftLabel').css('height', (((pEH*100)/2) + 3) + '%');
   $('#bar_rightLabel').css('height', (((pENotH*100)/2) + 3) + '%');
 
-  $('#heightRulerLeft').css('height', (pEH * 100) + '%');
-  $('#heightRulerRight').css('height', (pENotH * 100) + '%');
-
   //Update Middle Label
   if (pH < 0.05) {
     $('#bar_middle_left_label > p').css('font-size', ((pH * 20) * 16) + 'px');

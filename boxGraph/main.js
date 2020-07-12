@@ -1,5 +1,6 @@
 // Main functions to create the box graph and update it with percentage
 import * as interactivity from './interactivity.js';
+import * as rulers from './rulers.js';
 
 // Globals
 const canvas = document.getElementById('boxGraph');
@@ -41,9 +42,11 @@ var middleLineDrag = false;
 // Main update function
 function update() {
     clear();
-    // interactivity.test();
     drawBoxGraph(pEH, pENotH, pH);
+    rulers.updateRulers(pEH, pENotH, pH);
     drawBorder();
+
+
     
     requestAnimationFrame(update);
 }
