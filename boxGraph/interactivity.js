@@ -123,12 +123,18 @@ export function isMouseOnRightBarLine(event, rightY, middleX) {
 function _convertYCoordinateToPercentage(yCoordinate) {
     let percentage = yCoordinate/CANVAS_HEIGHT;
     percentage = 1-percentage;
+
+    percentage = Math.min(percentage, 1);
+    percentage = Math.max(percentage, 0);
+
     return percentage.toFixed(ROUND_TO_DECIMAL_POINT);
 }
 
 // Description: Calculate the nearest floating point value closest to the X coordinate
 function _convertXCoordinateToPercentage(xCoordinate) {
     let percentage = xCoordinate/CANVAS_WIDTH;
-    percentage = percentage;
+    percentage = Math.min(percentage, 1);
+    percentage = Math.max(percentage, 0);
+
     return percentage.toFixed(ROUND_TO_DECIMAL_POINT);
 }
