@@ -46,8 +46,6 @@ function update() {
     rulers.updateRulers(pEH, pENotH, pH);
     drawBorder();
 
-
-    
     requestAnimationFrame(update);
 }
 

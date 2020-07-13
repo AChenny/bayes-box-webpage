@@ -224,6 +224,7 @@ div#bottom {
 
 #leftHorizontalRulerText p, #rightHorizontalRulerText p{
   text-align: center;
+  color: #B22222;
 }
 
 #leftHorizontalRuler {
