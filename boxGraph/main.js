@@ -30,6 +30,11 @@ const RIGHT_BAR_LINE_COLOR = '#000000'
 const MIDDLE_BAR_LINE_THICKNESS = 4;
 const MIDDLE_BAR_LINE_COLOR = '#B22222';
 
+const BOX_FONT_DEFAULT_STYLE = 'Verdana'; 
+const BOX_FONT_MAX_SIZE = 22; // In pt font
+const BOX_FONT_DEFAULT_COLOR = '#000000';
+const BOX_FONT_BUFFER = 70; // In pixels
+
 // Interactivity globals
 var leftY = undefined; 
 var rightY = undefined; 
@@ -44,6 +49,7 @@ function update() {
     clear();
     drawBoxGraph(pEH, pENotH, pH);
     rulers.updateRulers(pEH, pENotH, pH);
+    drawBoxText(pEH, pENotH, pH);
     drawBorder();
 
     requestAnimationFrame(update);
@@ -98,7 +104,7 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.stroke();
     rightY = rightBarHeight;
     
-    // TODO: Draw the middle line
+    // Draw the middle line
     let middleLineX = pH * CANVAS_WIDTH;
     ctx.strokeStyle = MIDDLE_BAR_LINE_COLOR;
     ctx.lineWidth = MIDDLE_BAR_LINE_THICKNESS;
@@ -107,6 +113,39 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.lineTo(middleLineX, CANVAS_HEIGHT);
     ctx.stroke();
     middleX = middleLineX;
+}
+
+// Description: Draws the graph percentages inside the bar graphs
+// Input: Input: P(E|H) floating point value, P(E|Not-H) floating point value, P(H) floating point value
+function drawBoxText(pEH=0.5, pENotH=0.5, pH=0.5) {
+    let pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
+    
+    let leftBarFontSize = BOX_FONT_MAX_SIZE;
+    let rightBarFontSize =  BOX_FONT_MAX_SIZE;
+    // Check left bar size
+    if (pEH < 0.15 || pH < 0.15) {
+        // Take the smaller size font and set it as that
+        let percentageFont = Math.min((pEH * 6.66), (pH * 6.66));
+        leftBarFontSize = (percentageFont * BOX_FONT_MAX_SIZE).toFixed(0);
+    } 
+    if (pENotH < 0.15 || pH > 0.85) {
+        // Take the smaller size font and set it as that
+        let percentageFont = Math.min((pENotH * 6.66), ((1-pH) * 6.66));
+        rightBarFontSize = (percentageFont * BOX_FONT_MAX_SIZE).toFixed(0);
+    }
+    
+    // Add the text to the middle of the boxes
+    let leftBarTextCoordsX = (((middleX-BOX_FONT_BUFFER) / 2)).toFixed(0);
+    let leftBarTextCoordsY = ((CANVAS_HEIGHT + leftY) / 2).toFixed(0);
+    ctx.fillStyle = BOX_FONT_DEFAULT_COLOR;
+    ctx.font = leftBarFontSize + 'pt ' + BOX_FONT_DEFAULT_STYLE; 
+    ctx.fillText(pHE, leftBarTextCoordsX, leftBarTextCoordsY);
+
+    let rightBarTextCoordsX = (((middleX + CANVAS_WIDTH) - BOX_FONT_BUFFER)/2).toFixed(0);
+    let rightBarTextCoordsY = ((CANVAS_HEIGHT + rightY) / 2).toFixed(0);
+    ctx.fillStyle = BOX_FONT_DEFAULT_COLOR;
+    ctx.font = rightBarFontSize + 'pt ' + BOX_FONT_DEFAULT_STYLE; 
+    ctx.fillText((1-pHE).toFixed(3), rightBarTextCoordsX, rightBarTextCoordsY);
 }
 
 // Description: Resets the drag booleans
