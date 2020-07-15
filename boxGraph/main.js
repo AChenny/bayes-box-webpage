@@ -36,6 +36,8 @@ const BOX_FONT_MAX_SIZE = 22; // In pt font
 const BOX_FONT_DEFAULT_COLOR = '#000000';
 const BOX_FONT_BUFFER = 70; // In pixels
 
+var estimatorMode = false; // Boolean, flag to draw or not draw the probabilities
+
 // Interactivity globals
 var leftY = undefined; 
 var rightY = undefined; 
@@ -50,7 +52,9 @@ function update() {
     clear();
     drawBoxGraph(pEH, pENotH, pH);
     rulers.updateRulers(pEH, pENotH, pH);
-    drawBoxText(pEH, pENotH, pH);
+    if (!estimatorMode) {
+        drawBoxText(pEH, pENotH, pH);
+    }
     drawBorder();
     
     // Updating this should update all the labels on main script
@@ -66,6 +70,14 @@ export function updateBoxGraphValues(_pEH, _pENotH, _pH) {
     pEH = _pEH;
     pENotH = _pENotH;
     pH = _pH;
+}
+
+// Description: Sets the estimator mode flag on or off as an export
+// Input: Boolean
+// Output: None
+// Example: setEstimatorMode(false)
+export function setEstimatorModeBoxGraph(flag) {
+    estimatorMode = flag;
 }
 
 // Description: Clears the boxGraph of drawings

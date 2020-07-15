@@ -1,6 +1,6 @@
 // Import constants 
 import * as constants from './constants.js';
-import { updateBoxGraphValues } from './boxGraph/main.js';
+import { updateBoxGraphValues, setEstimatorModeBoxGraph } from './boxGraph/main.js';
 
 // Global Variables
 var pEH = 0.500;
@@ -144,9 +144,11 @@ $(document).ready(function() {
     $('#calculator_estimator_toggle_switch').change(function() {
       if ($(this).prop('checked')) {
         toggleVisualEstimator(1);
+        setEstimatorModeBoxGraph(true);
       }
       else {
         toggleVisualEstimator(0);
+        setEstimatorModeBoxGraph(false);
       }
     })
   })
