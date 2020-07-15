@@ -1,6 +1,7 @@
 // Main functions to create the box graph and update it with percentage
 import * as interactivity from './interactivity.js';
 import * as rulers from './rulers.js';
+import { updateValues } from '../script.js';
 
 // Globals
 const canvas = document.getElementById('boxGraph');
@@ -10,9 +11,9 @@ const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
 
 // Probabilities
-var pEH = 0.5;
-var pENotH = 0.5;
-var pH = 0.5;
+var pEH = 0.500;
+var pENotH = 0.500;
+var pH = 0.500;
 
 // Configuration constants
 const CANVAS_BORDER_THICKNESS = 8;
@@ -51,8 +52,20 @@ function update() {
     rulers.updateRulers(pEH, pENotH, pH);
     drawBoxText(pEH, pENotH, pH);
     drawBorder();
-
+    
+    // Updating this should update all the labels on main script
+    updateValues(pEH, pENotH, pH);
+    
     requestAnimationFrame(update);
+}
+
+// Description: Updates the probability values in this scope
+// Input: Probability values in float <1;
+// Example: updateBoxGraphValues(0.500, 0.522, 1.000);
+export function updateBoxGraphValues(_pEH, _pENotH, _pH) {
+    pEH = _pEH;
+    pENotH = _pENotH;
+    pH = _pH;
 }
 
 // Description: Clears the boxGraph of drawings
