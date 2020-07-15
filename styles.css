@@ -44,109 +44,10 @@ div#bottom {
   max-width: 1200px;
   margin:auto;
 }
+
 /* Box Graph */
-#boxGraph {
-  /* border: 3px solid black; */
-}
 
-/* Bar Graph */
-#bar {
-  width: 815px;
-  height: 450px;
-  overflow: visible;
-  margin: 55px auto;
-  margin-top: 30px;
-  border: 0px;
-}
-#leftBar {
-  position: relative;
-  background-color: #90FF93;
-  width: 405px;
-  height: 100%;
-  float: left;
-  border-left: 5px solid black;
-  border-right: 0px;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-}
-#rightBar {
-  position: relative;
-  background-color: #90B1FF;
-  width: 405px;
-  height: 100%;
-  float: right;
-  border-right: 5px solid black;
-  border-left: 0px;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-}
-#leftInner, #rightInner {
-  background-color: white;
-  border: 0px;
-}
-#leftInner {
-  height: 215px;
-  /* border-left: 1px solid black; */
-}
-#rightInner {
-  height: 215px;
-  /* border-right: 1px solid black; */
-}
-
-#verticalDivisionBar {
-  width: 5px;
-  height: 100%;
-  background-color: #B22222;
-  float: right;
-  cursor: col-resize;
-  border: 0px;
-}
-
-#leftDivisionBar, #rightDivisionBar {
-  width: 100%;
-  height: 5px;
-  cursor: row-resize;
-  background-color: black;
-}
-
-.bar_label {
-  font-size: 12pt;
-}
-
-#bar_leftLabel {
-  position: absolute;
-  left: -100px;
-  bottom: 0;
-}
-
-#bar_rightLabel {
-  position: absolute;
-  right: -100px;
-  bottom: 0;
-}
-
-#bar_middle_left_label, #bar_middle_right_label{
-  position: absolute;
-  bottom: -57px;
-  color: #B22222;
-  width: inherit;
-}
-
-#bar_middle_right_label > p{
-  min-width: 80px;
-}
-
-#bar_middle_left_label > p{
-  min-width: 40px;
-}
-
-#leftBarPercentage, #rightBarPercentage {
-  text-align: center;
-  font-size: 28px;
-  height: 40px;
-}
 /* Height Rulers */
-
 #verticalRulerLeftContainer, #verticalRulerRightContainer {
   height: 450px;
   width: 15px;
@@ -236,7 +137,6 @@ div#bottom {
   flex-grow: 1;
   float: right;
 }
-
 
 /* believe/disbelieve--confirmation/disconfirmation and visual estimator tags */
 
