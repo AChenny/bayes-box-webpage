@@ -124,7 +124,12 @@ function _updateLights(pEH, pENotH, pH) {
   let evidenceStrengthCalculation = pEH/pENotH;
 
   let confirmationSaturation = getPosInLogspace(evidenceStrengthCalculation);
-  $('#believe_confirmation_evidence_strength_value_span').text(evidenceStrengthCalculation.toFixed(2));
+  if (isFinite(evidenceStrengthCalculation)) {
+    $('#believe_confirmation_evidence_strength_value_span').text(evidenceStrengthCalculation.toFixed(2));
+  }
+  else {
+    $('#believe_confirmation_evidence_strength_value_span').text('Maximum');
+  }
   $('#believe_confirmation_evidence_strength_light').css('background-color', '#' + rgbToHex(parseInt(confirmationSaturation)) + rgbToHex(parseInt(confirmationSaturation)) + rgbToHex(parseInt(confirmationSaturation)));
   $('#believe_confirmation_evidence_strength_light_text').css('color', '#' + (rgbToHex(255-parseInt(confirmationSaturation))) + (rgbToHex(255-parseInt(confirmationSaturation))) + (rgbToHex(255-parseInt(confirmationSaturation))));
 
