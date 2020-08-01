@@ -19,19 +19,27 @@ export function updateValues(_pEH, _pENotH, _pH) {
   _updateLights(pEH, pENotH, pH);
 }
 
-//Formula scripts
 function updateFormula(pEH, pENotH, pH) {
-  //Update box1
-  var box1 = document.getElementById('box1');
-  box1.value = pEH.toFixed(3);
+  // If the user is using any of the input boxes, don't update it.
+  if (!$("#box1").is(":focus")) {
+    var box1 = document.getElementById('box1');
+    box1.value = pEH.toFixed(3);
+  };
   document.getElementById('equation_values_denominator_peh').innerHTML = pEH.toFixed(3);
-  //Update box2
-  var box2 = document.getElementById('box2');
-  box2.value = pH.toFixed(3);
+  
+  // Box 2 
+  if (!$("#box2").is(":focus")) {
+    var box2 = document.getElementById('box2');
+    box2.value = pH.toFixed(3);
+  };
   document.getElementById('equation_values_denominator_ph').innerHTML = pH.toFixed(3);
-  //Update box3
-  var box3 = document.getElementById('box3');
-  box3.value = pENotH.toFixed(3);
+
+  // Box 3
+  if (!$("#box3").is(":focus")) {
+    var box3 = document.getElementById('box3');
+    box3.value = pENotH.toFixed(3);
+  };
+
   //Update formula text 1 P(NOT-H)
   var formVar1 = document.getElementById('formVar1');
   formVar1.innerHTML = (1 - pH).toFixed(3);
@@ -39,6 +47,9 @@ function updateFormula(pEH, pENotH, pH) {
   var formVar2 = document.getElementById('formVar2');
   var pHE = (pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)));
   formVar2.innerHTML = pHE.toFixed(3);
+
+  // Update the box graph values
+  updateBoxGraphValues(pEH, pENotH, pH);
 }
 
 function toggleVisualEstimator(toggleOn) {
@@ -134,9 +145,13 @@ $(document).ready(function() {
         pEH = parseFloat($("input[name=box1]").val());
         pH = parseFloat($("input[name=box2]").val());
         pENotH = parseFloat($("input[name=box3]").val());
+        
+        // Unfocus the box to allow for update
+        $('#box1').blur()
+        $('#box2').blur()
+        $('#box3').blur()
+
         updateFormula(pEH, pENotH, pH)
-        redraw(pEH, pENotH, pH)
-        _updateLights(pEH, pENotH, pH)
     }
   });
 
