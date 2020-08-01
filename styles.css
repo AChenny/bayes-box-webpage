@@ -353,6 +353,7 @@ div#bottom {
 
 .formula_pHE_result {
   font-size: 20pt;
+  font-weight: bold;
 }
 
 #formula_pHE_result_container {
