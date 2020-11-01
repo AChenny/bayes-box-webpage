@@ -58,12 +58,14 @@ function toggleVisualEstimator(toggleOn) {
     $('#leftBarPercentage').hide();
     $('#formVar2').hide();
     $('#formulaEquationBoxes').hide();
+    $('#believe_confirmation_evidence_strength_value_span').hide();
   }
   else {
     $('#rightBarPercentage').show();
     $('#leftBarPercentage').show();
     $('#formVar2').show();
     $('#formulaEquationBoxes').show();
+    $('#believe_confirmation_evidence_strength_value_span').show();
   }
 }
 
@@ -85,7 +87,7 @@ function _updateLights(pEH, pENotH, pH) {
   let rgbToHex = function (rgb) { 
     let hex = Number(rgb).toString(16);
     if (hex.length < 2) {
-         hex = "0" + hex;
+      hex = "0" + hex;
     }
     return hex;
   };
@@ -123,15 +125,17 @@ function _updateLights(pEH, pENotH, pH) {
   // Change the brightness of the evidence strength light on probability change
   let evidenceStrengthCalculation = pEH/pENotH;
 
-  let confirmationSaturation = getPosInLogspace(evidenceStrengthCalculation);
   if (isFinite(evidenceStrengthCalculation)) {
     $('#believe_confirmation_evidence_strength_value_span').text(evidenceStrengthCalculation.toFixed(2));
   }
   else {
     $('#believe_confirmation_evidence_strength_value_span').text('Maximum');
   }
-  $('#believe_confirmation_evidence_strength_light').css('background-color', '#' + rgbToHex(parseInt(confirmationSaturation)) + rgbToHex(parseInt(confirmationSaturation)) + rgbToHex(parseInt(confirmationSaturation)));
-  $('#believe_confirmation_evidence_strength_light_text').css('color', '#' + (rgbToHex(255-parseInt(confirmationSaturation))) + (rgbToHex(255-parseInt(confirmationSaturation))) + (rgbToHex(255-parseInt(confirmationSaturation))));
+
+  let confirmationRHex = rgbToHex(parseInt(144));
+  let confirmationGHex = rgbToHex(parseInt(144 + ((evidenceStrengthCalculation/2) * 111)));
+  let confirmationBHex = rgbToHex(parseInt(144 + ((1-(evidenceStrengthCalculation/2)) * 111)));
+  $('#believe_confirmation_evidence_strength_light').css('background-color', '#' + confirmationRHex + confirmationGHex  + confirmationBHex );
 
   // Change the brightness of the updated probability light and the text to inverse
   let updatedProbabilitySaturation = rgbToHex(parseInt(pHE*255));
