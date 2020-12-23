@@ -12,8 +12,8 @@ const CANVAS_HEIGHT = canvas.height;
 
 // Probabilities
 var pEH = 0.500;
-var pENotH = 0.500;
-var pH = 0.500;
+var pENotH = 0.200;
+var pH = 0.400;
 
 // Configuration constants
 const CANVAS_BORDER_THICKNESS = 8;
