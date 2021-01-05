@@ -6,19 +6,148 @@
   <head>
     <meta charset="utf-8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <!-- <link href="styles.css" rel="stylesheet"> -->
     <title>Bayes Box</title>
   </head>
   <body>
-    <div id="window" class="container">
+    <div class="container" id="window">
       <div class="row" id="formula">
-          <div style="margin: auto;">
+        <div class="col-md-1">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col"></br></div>
+            </div>
+            <div class="row">
+              <div class="col center-paragraph" id="formula_phe_text">
+                <p>
+                  <b><i>P</i></b>(H<b>|</b>E)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-1 center-paragraph">
+            <div class="container-fluid">
+              <div class="row">
+                </br>
+              </div>
+              <div class="row">
+                <div class="col formula-sm-font">
+                  <p id="formula_equals_left">=</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-md-7 formula-sm-font">
+          <!-- Formula body -->
+          <div class="container-fluid center-paragraph-container">
+            <div class="row">
+              <div class="col-md-5">
+                <!-- Top division -->
+                <div class="row" id="formula_peh_top">
+                  <div class="col" >
+                    <div class="container-fluid green-results-background-color">
+                      <div class="row">
+                        <div class="col-md-5"><input type="text" name="box1" id="box1" value="0.500" size="3"></div>
+                        <div class="col-md-1 no-padding"></div>
+                        <div class="col-md-5"><input type="text" name="box1" id="box1" value="0.500" size="3"></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-5"><b><i>P</i></b>(E<b>|</b>H)</div>
+                        <div class="col-md-1 no-padding">&times;</div>
+                        <div class="col-md-5"><b><i>P</i></b>(H)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Division line -->
+            <div class="row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row" id="division_line"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Bottom Division -->
+            <div class="row" id="formula_p_not_h">
+              <!-- Bottom left Division  -->
+              <div class="col-md-5">
+                <div class="container-fluid green-results-background-color">
+                  <div class="row">
+                    <div class="col-md-5"><b><i>P</i></b>(E<b>|</b>H)</div>
+                    <div class="col-md-1 no-padding">&times;</div>
+                    <div class="col-md-5"><b><i>P</i></b>(H)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5">0.500</div>
+                    <div class="col-md-1 no-padding"></div>
+                    <div class="col-md-5">0.123</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Separator Operator-->
+              <div class="col-md-1 no-padding">
+                +
+              </div>
+
+              <!-- Bottom right division -->
+              <div class="col-md-5">
+                <div class="container-fluid blue-results-background-color">
+                  <div class="row">
+                    <div class="col-md-5"><b><i>P</i></b>(E<b>|</b>&not;H)</div>
+                    <div class="col-md-1">&times;</div>
+                    <div class="col-md-5"><b><i>P</i></b>(&not;H)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5"><input type="text" name="box1" id="box1" value="0.500" size="3"></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">0.877</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-auto no-padding">
+          <div class="container-fluid no-padding">
+            <div class="row">
+              <div class="col"></br></div>
+            </div>
+            <div class="row no-padding">
+              <div class="col center-paragraph no-padding formula-sm-font" id="formula_equals_right">
+                <p>=</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="container-fluid ">
+            <div class="row">
+              <div class="col"></br></div>
+            </div>
+            <div class="row">
+              <div class="col center-paragraph formula-lg-font" id="formula_phe_variable">
+                <p>0.219</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- <div class="row">Row2</div> -->
+  <!-- <div class="row">Row3</div> -->
+          <!-- <div style="margin: auto;">
             <p style="text-align: center;" class="formula_pHEText"><b><i>P</i></b>(H<b>|</b>E)</p>
           </div>
           <div class= "formula_equals_text_container">
             <p class="formula_equation_text formula_equals_text">=</p>
           </div>
           <div class="formula_equation_text" style="margin: auto;">
+            <p>0.5</p>
             <p class="formulaTop"><span style="background-color:#90FF93; padding: 2px" ><i><b>P</b></i>(E<b>|</b>H) &times; <i><b>P</b></i>(H)</span></p>
             <div class="row">
               <div class="col-12">
@@ -42,8 +171,8 @@
           </div>
           <div id="formula_pHE_result_container">
             <p id="formVar2" class="formula_pHE_result">0.500</p>
-          </div>
-      </div>
+          </div> -->
+      <!-- </div>
       <div class="row" id="belCon">
         <table id="believe_confirmation_table_container">
           <tr>
@@ -126,7 +255,7 @@
         </div>
         <p style="color: 'grey'; opacity: 0.5">&copy Lyle Crawford</p>
       </div>
-    </div>
+    </div> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
@@ -135,5 +264,6 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type = "module" src="script.js"></script>
     <script type = "module" src="boxGraph/main.js"></script>
+    <link rel="stylesheet" href="bodyStyles.css">
   </body>
 </html>

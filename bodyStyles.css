@@ -1,0 +1,95 @@
+/* div {
+    border: black 2px solid;
+} */
+
+/* General Styles */
+.center-paragraph-container {
+    position: relative;
+}
+
+.center-paragraph {
+    text-align: center;
+}
+
+.green-results-background-color {
+    background-color: #90FF93;
+}
+
+.blue-results-background-color {
+    background-color: #9090FF;
+}
+
+.no-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+p {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.col-md-0half {
+    width: 2.5%;
+}
+
+/* Formula Styles */
+.formula-sm-font {
+    font-size: 14pt;
+}
+
+.formula-lg-font {
+    font-size: 20pt;
+}
+
+#formula_division {
+    border: blue dashed 1px;
+}
+
+#division_line {
+    border: 1px solid black;
+}
+
+.formula-operands {
+    width: 12.5%;
+}
+
+.formula-operator {
+    width: 5%;
+}
+
+
+#formula_phe_text {
+    height: 100%;
+    position: relative;
+    font-size: 20pt;
+    margin-top: 20px;
+}
+
+#formula_phe_variable {
+    margin-top: 20px;
+}
+
+#formula_peh_top {
+    margin-bottom: 2px;
+}
+
+#formula_peh_bottom {
+    margin-bottom: 2px;
+}
+
+#formula_p_not_h {
+    margin-top: 2px;
+}
+
+#formula_equals_left {
+    margin-left: 30px;
+    margin-top: 26px;
+}
+
+#formula_equals_right {
+    margin-top: 26px;
+}
+
+#formula_equals_left p{
+    margin-top: 50px;
+}
