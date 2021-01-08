@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <!-- <link href="styles.css" rel="stylesheet"> -->
+    <link href="styles.css" rel="stylesheet">
     <title>Bayes Box</title>
   </head>
   <body>
@@ -81,9 +81,9 @@
                     <div class="col-md-5"><b><i>P</i></b>(H)</div>
                   </div>
                   <div class="row">
-                    <div class="col-md-5">0.500</div>
+                    <div class="col-md-5" id="equation_values_denominator_peh">0.500</div>
                     <div class="col-md-1 no-padding"></div>
-                    <div class="col-md-5">0.123</div>
+                    <div class="col-md-5" id="equation_values_denominator_ph">0.123</div>
                   </div>
                 </div>
               </div>
@@ -104,7 +104,7 @@
                   <div class="row">
                     <div class="col-md-5"><input type="text" name="box3" id="box3" value="0.200" size="3"></div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-5">0.877</div>
+                    <div class="col-md-5" id="formVar1">0.877</div>
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@
             </div>
             <div class="row">
               <div class="col center-paragraph formula-lg-font" id="formula_phe_variable">
-                <p>0.219</p>
+                <p id="formVar2">0.219</p>
               </div>
             </div>
           </div>
@@ -194,7 +194,7 @@
               </div>
               <div class="col-md-4" id="buttons_estimator_switch_container">
                 <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" id="buttons_estimator_switch">
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -219,89 +219,8 @@
           
         </div>
       </div>
-    </div>
-  <!-- <div class="row">Row3</div> -->
-          <!-- <div style="margin: auto;">
-            <p style="text-align: center;" class="formula_pHEText"><b><i>P</i></b>(H<b>|</b>E)</p>
-          </div>
-          <div class= "formula_equals_text_container">
-            <p class="formula_equation_text formula_equals_text">=</p>
-          </div>
-          <div class="formula_equation_text" style="margin: auto;">
-            <p>0.5</p>
-            <p class="formulaTop"><span style="background-color:#90FF93; padding: 2px" ><i><b>P</b></i>(E<b>|</b>H) &times; <i><b>P</b></i>(H)</span></p>
-            <div class="row">
-              <div class="col-12">
-                <p class="formulaBottom"><span style="background-color:#90FF93; padding: 1px"><i><b>P</b></i>(E<b>|</b>H) &times; <i><b>P</b></i>(H)</span> + <span style="background-color:#9090FF; padding: 1px"><i><b>P</b></i>(E<b>|</b>&not;H) &times; <i><b>P</b></i>(&not;H)</span></p>
-              </div>
-            </div>
-          </div>
-          <div class= "formula_equals_text_container">
-            <p class="formula_equation_text formula_equals_text">=</p>
-          </div>
-          <div id="formulaEquationBoxes" class="formula_equation_text" style="margin: auto;">
-            <div class="formulaTop"><span style="background-color:#90FF93"><input type="text" name="box1" id="box1" value="0.500" size="3"><p>&times;</p><input type="text" name="box2" id="box2" value="0.500" size="3"></span></div>
-            <div class="row">
-              <div class="col-12">
-                <div class="formulaBottom"><span id= "formula_variables_denominator_ph_phe_container" style="background-color:#90FF93; padding: 4px"><p id="equation_values_denominator_peh">0.500</p> &times; <p id="equation_values_denominator_ph">0.500</p></span>+<input type="text" name="box3" id="box3" value="0.500" size="3"><span style="background-color:#9090FF; padding: 3px;">&times;<p id="formVar1" style="display: inline-block">0.500</p></span></div>
-              </div>
-            </div>
-          </div>
-          <div class= "formula_equals_text_container">
-            <p class="formula_equation_text formula_equals_text">=</p>
-          </div>
-          <div id="formula_pHE_result_container">
-            <p id="formVar2" class="formula_pHE_result">0.500</p>
-          </div> -->
-      <!-- </div>
-      <div class="row" id="belCon">
-        <table id="believe_confirmation_table_container">
-          <tr>
-            <td id="negative_result_mode_toggle_container" colspan=2>
-              <p><b><i>P</i></b>(H<b>|</b>E)</p> 
-                <div id="negative_result_mode_toggle_switch_container" class="material-switch">
-                  <input id="negative_result_mode_toggle_switch" name="someSwitchOption001" type="checkbox"/>
-                  <label for="negative_result_mode_toggle_switch" class="label-default"></label>
-                </div>
-              <p><b><i>P</i></b>(H<b>|</b>&not;E)</p>
-            </td>
-            <td id="evidence_strength_container" class="believeConfirmation" rowspan=2>
-              <div id="believe_confirmation_evidence_strength_light">
-                <p id="believe_confirmation_evidence_strength_light_text"><b><i>P</i></b>(E<b>|</b>H) / <b><i>P</i></b>(E<b>|</b>&not;H)</p>
-              </div>
-              <p class="believeConfirmationValues" id="believe_confirmation_evidence_strength_value">Evidence Strength = <span id="believe_confirmation_evidence_strength_value_span">NNN</span></p>
-            </td>
-            <td id="prior_probability_container" class="believeConfirmation" rowspan=2>
-              <div id="believe_confirmation_prior_probability_light">
-                <p id="believe_confirmation_prior_probability_light_text"><b><i>P</i></b>(H)</p>
-              </div>
-              <p class="believeConfirmationValues" id="believe_confirmation_prior_probability_value">Prior Probability</p>
-            </td>
-            <td id="updated_probability_container" class="believeConfirmation" rowspan=2>
-              <div id="believe_confirmation_updated_probability_light">
-                <p id="believe_confirmation_updated_probability_light_text"><b><i>P</i></b>(H<b>|</b>E)</p>
-              </div>
-              <p class="believeConfirmationValues" id="believe_confirmation_updated_probability_value">Updated Probability</p>
-            </td>
-          </tr>
-          <tr>
-            <td id="calculator_estimator_toggle_container">
-              <i class="fas fa-calculator fa-3x"></i>
-              <div id="calculator_estimator_toggle_switch_container" class="material-switch">
-                <input id="calculator_estimator_toggle_switch" name="someSwitchOption001" type="checkbox"/>
-                <label for="calculator_estimator_toggle_switch" class="label-default"></label>
-              </div>
-              <i class="fas fa-eye fa-3x"></i>
-            </td>
-            <td id="randomize_button_container">
-              <button id="randomize_button" type="button" class="btn btn-primary btn-circle btn-sm"></button>
-              <p id="randomize_button_text">Randomize</p>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="row" id="bottom">
-        <div class="col-12" id="barGraph">
+      <div class="row" id="bar_graph_container">
+        <div class="col" id="barGraph">
           <div id='verticalRulerLeftContainer'>
             <div id='verticalRulerLeftTop'></div>
             <div id='verticalRulerLeftBottom'>
@@ -334,9 +253,11 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="row">
         <p style="color: 'grey'; opacity: 0.5">&copy Lyle Crawford</p>
       </div>
-    </div> -->
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>

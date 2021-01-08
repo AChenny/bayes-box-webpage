@@ -54,18 +54,25 @@ function updateFormula(pEH, pENotH, pH) {
 
 function toggleVisualEstimator(toggleOn) {
   if (toggleOn) {
-    $('#rightBarPercentage').hide();
-    $('#leftBarPercentage').hide();
+    $('#formVar1').hide();
     $('#formVar2').hide();
-    $('#formulaEquationBoxes').hide();
     $('#believe_confirmation_evidence_strength_value_span').hide();
+    $('#box1').css('color', '#FFFFFF');
+    $('#box2').css('color', '#FFFFFF');
+    $('#box3').css('color', '#FFFFFF');
+    $('#equation_values_denominator_peh').hide();
+    $('#equation_values_denominator_ph').hide();
+    
   }
   else {
-    $('#rightBarPercentage').show();
-    $('#leftBarPercentage').show();
+    $('#formVar1').show();
     $('#formVar2').show();
-    $('#formulaEquationBoxes').show();
     $('#believe_confirmation_evidence_strength_value_span').show();
+    $('#box1').css('color', '#000000');
+    $('#box2').css('color', '#000000');
+    $('#box3').css('color', '#000000');
+    $('#equation_values_denominator_peh').show();
+    $('#equation_values_denominator_ph').show();
   }
 }
 
@@ -165,7 +172,7 @@ $(document).ready(function() {
   });
 
   $(function() {
-    $('#calculator_estimator_toggle_switch').change(function() {
+    $('#buttons_estimator_switch').change(function() {
       if ($(this).prop('checked')) {
         toggleVisualEstimator(1);
         setEstimatorModeBoxGraph(true);

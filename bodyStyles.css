@@ -190,6 +190,105 @@ p {
     border-left: 2px solid black;
 }
 
+/* Graph Styles */
+div#bottom {
+    height: 615px;
+    max-width: 1200px;
+    margin:auto;
+  }
+  
+  
+/* Height Rulers */
+#verticalRulerLeftContainer, #verticalRulerRightContainer {
+height: 450px;
+width: 15px;
+display: flex;
+flex-direction: column;
+}
+
+#verticalRulerLeftContainer {
+margin-right: 10px;
+}
+
+#verticalRulerRightContainer {
+margin-left: 10px;
+}
+
+#verticalRulerLeftTop, #verticalRulerRightTop {
+width: 100%;
+flex: 2;
+}
+
+#verticalRulerLeftBottom {
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+border-left: 1px solid black;
+height: 50%;
+}
+
+#verticalRulerRightBottom {
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+border-right: 1px solid black;
+height: 50%;
+}
+
+#verticalRulerLeftText, #verticalRulerRightText {
+position: relative;
+top: 50%;
+}
+
+#verticalRulerLeftText {
+right: 50px;
+}
+
+#verticalRulerRightText {
+left: 30px;
+}
+
+#verticalRulerLeftText p, #verticalRulerRightText p {
+position: relative;
+width: max-content;
+margin: 0;
+/* Top should be subtracted by height/2 */
+top: -10px;
+}
+
+#horizontalRulerContainer {
+width: 800px;
+align-self: flex-start;
+margin-bottom: 30px;
+}
+
+#horizontalRuler {
+border-bottom: 1px solid black;
+border-left: 1px solid black;
+border-right: 1px solid black;
+width: 100%;
+max-height: 15px;
+display: flex;
+}
+
+#leftHorizontalRulerText, #rightHorizontalRulerText {
+position: relative;
+top: 25px;
+}
+
+#leftHorizontalRulerText p, #rightHorizontalRulerText p{
+text-align: center;
+color: #B22222;
+}
+
+#leftHorizontalRuler {
+flex-grow: 0;
+width: 50%;
+border-right: 1px solid black;
+}
+#rightHorizontalRuler {
+flex-grow: 1;
+float: right;
+}
+
 /* Switch Styles */
 .switch {
     position: relative;
