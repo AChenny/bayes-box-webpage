@@ -33,6 +33,10 @@ p {
 }
 
 /* Formula Styles */
+#formula {
+    border: 1px solid black;
+}
+
 .formula-sm-font {
     font-size: 14pt;
 }
@@ -42,11 +46,12 @@ p {
 }
 
 #formula_division {
-    border: blue dashed 1px;
+    border: black dashed 1px;
 }
 
-#division_line {
+.division_line {
     border: 1px solid black;
+    background-color: black;;
 }
 
 .formula-operands {
@@ -93,3 +98,168 @@ p {
 #formula_equals_left p{
     margin-top: 50px;
 }
+
+#box3 {
+    height: 20px;
+}
+
+/* Button styles */
+#buttons-container {
+    border: 1px solid black;
+    height: 80px;
+}
+
+.buttons-md-font {
+    font-size: 12pt;
+}
+
+.buttons-lg-font {
+    font-size: 20pt;
+}
+
+.buttons-equal-signs {
+    margin-top: 26px;
+}
+
+#buttons_evidence_strength_variable {
+    margin-top: 15px;
+}
+
+#buttons_evidence_strength_label {
+    margin-top: 15px;
+}
+
+#buttons_evidence_strength_formula {
+    margin-top: 13px;
+}
+
+#buttons_evidence_strength_formula p{
+    margin-bottom: 0px;
+}
+
+#buttons_formula_bottom_division {
+    margin-left: -8px;
+}
+
+#buttons_negative_results_container {
+    margin-top: 20px;
+}
+
+#buttons_negative_results_positive_label_column {
+    margin-top: 5px;
+}
+
+#buttons_negative_results_negative_label_column {
+    margin-top: 5px;
+}
+
+#buttons_negative_results_switch {
+    margin-left: 15px;
+}
+
+#buttons_estimator_mode_container {
+    margin-top: 5px;
+}
+
+#buttons_estimator_calculator_icon_container {
+    margin-top: 10px;
+}
+
+#buttons_estimator_estimator_icon_container {
+    margin-top: 10px;
+}
+
+#buttons_estimator_switch_container {
+    margin-top: 15px;
+}
+
+#buttons_randomize_button_container {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+#buttons_randomize_column {
+    border-left: 2px solid black;
+}
+
+#buttons_estimator_mode_column {
+    border-left: 2px solid black;
+}
+
+#buttons_negative_results_column {
+    border-left: 2px solid black;
+}
+
+/* Switch Styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+/* Button styles */
+.btn-circle.btn-sm { 
+    width: 30px; 
+    height: 30px; 
+    padding: 6px 0px; 
+    border-radius: 15px; 
+    font-size: 8px; 
+    text-align: center; 
+} 

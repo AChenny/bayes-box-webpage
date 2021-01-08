@@ -50,7 +50,7 @@
                       <div class="row">
                         <div class="col-md-5"><input type="text" name="box1" id="box1" value="0.500" size="3"></div>
                         <div class="col-md-1 no-padding"></div>
-                        <div class="col-md-5"><input type="text" name="box1" id="box1" value="0.500" size="3"></div>
+                        <div class="col-md-5"><input type="text" name="box2" id="box2" value="0.500" size="3"></div>
                       </div>
                       <div class="row">
                         <div class="col-md-5"><b><i>P</i></b>(E<b>|</b>H)</div>
@@ -66,7 +66,7 @@
             <div class="row">
               <div class="col">
                 <div class="container-fluid">
-                  <div class="row" id="division_line"></div>
+                  <div class="row division_line"></div>
                 </div>
               </div>
             </div>
@@ -102,14 +102,13 @@
                     <div class="col-md-5"><b><i>P</i></b>(&not;H)</div>
                   </div>
                   <div class="row">
-                    <div class="col-md-5"><input type="text" name="box1" id="box1" value="0.500" size="3"></div>
+                    <div class="col-md-5"><input type="text" name="box3" id="box3" value="0.200" size="3"></div>
                     <div class="col-md-1"></div>
                     <div class="col-md-5">0.877</div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <div class="col-md-auto no-padding">
@@ -137,8 +136,90 @@
           </div>
         </div>
       </div>
+      <div class="row" id="buttons-container">
+        <div class="col-md-4">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3 center-paragraph buttons-md-font" id="buttons_evidence_strength_label"><p>Evidence </br>Strength</p></div>
+              <div class="col-md-1 center-paragraph buttons-md-font buttons-equal-signs">=</div>
+              <div class="col-md-4 center-paragraph buttons-md-font" id="buttons_evidence_strength_formula">
+                <div class="container-fluid">
+                  <div class="row ">
+                    <div class="col no-padding">
+                      <p>
+                        <b><i>P</i></b>(E<b>|</b>H)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row division_line"></div>
+                  <div class="row" id="buttons_formula_bottom_division">
+                    <p>
+                      <b><i>P</i></b>(E<b>|</b>&not;H)
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 center-paragraph buttons-md-font buttons-equal-signs">=</div>
+              <div class="col-md-2 center-paragraph buttons-lg-font" id="buttons_evidence_strength_variable">
+                <span id="believe_confirmation_evidence_strength_value_span">2.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" id="buttons_negative_results_column">
+          <!-- Positive/Negative Result Modes -->
+          <div class="container-fluid" id="buttons_negative_results_container">
+            <div class="row buttons-md-font">
+              <div class="col-md-3" id="buttons_negative_results_positive_label_column">
+                <p><b><i>P</i></b>(E<b>|</b>H)</p>
+              </div>
+              <div class="col-md-4">
+                <label class="switch" id="buttons_negative_results_switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div class="col-md-5" id="buttons_negative_results_negative_label_column">
+                <p><b><i>P</i></b>(E<b>|</b>&not;H)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3" id="buttons_estimator_mode_column">
+          <!-- Visual Estimator Mode -->
+          <div class="container-fluid" id="buttons_estimator_mode_container">
+            <div class="row">
+              <div class="col-md-4" id="buttons_estimator_calculator_icon_container">
+                <i class="fas fa-calculator fa-3x"></i>
+              </div>
+              <div class="col-md-4" id="buttons_estimator_switch_container">
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <div class="col-md-4" id="buttons_estimator_estimator_icon_container">
+                <i class="fas fa-eye fa-3x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2" id="buttons_randomize_column">
+          <!-- Randomize Button -->
+          <div class="container-fluid" id="buttons_randomize_button_container">
+            <div class="row">
+              <div class="col">
+                <button id="randomize_button" type="button" class="btn btn-primary btn-circle btn-sm"></button>
+              </div>
+            </div>
+            <div class="row">
+              <p id="randomize_button_text">Randomize</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
     </div>
-  <!-- <div class="row">Row2</div> -->
   <!-- <div class="row">Row3</div> -->
           <!-- <div style="margin: auto;">
             <p style="text-align: center;" class="formula_pHEText"><b><i>P</i></b>(H<b>|</b>E)</p>
