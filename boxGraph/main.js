@@ -21,6 +21,8 @@ const CANVAS_BORDER_COLOR = '#000000';
 
 const LEFT_BAR_COLOR = '#90FF93';
 const RIGHT_BAR_COLOR = '#9090FF';
+const LEFT_BAR_COLOR_DESATURATED = '#1aff93';
+const RIGHT_BAR_COLOR_DESATURATED = '#c890ff';
 
 const LEFT_BAR_LINE_THICKNESS = 4;
 const RIGHT_BAR_LINE_THICKNESS = 4;
@@ -40,6 +42,7 @@ const BOX_FONT_DEFAULT_COLOR = '#000000';
 const BOX_FONT_BUFFER = 70; // In pixels
 
 var estimatorMode = false; // Boolean, flag to draw or not draw the probabilities
+var negativeResultsMode = false; // Flag to check for negative results mode
 
 // Interactivity globals
 var leftY = undefined; 
@@ -83,6 +86,14 @@ export function setEstimatorModeBoxGraph(flag) {
     estimatorMode = flag;
 }
 
+// Description: Sets the negative results mode flag on or off as an exported function
+// Input: Boolean
+// Output: None
+// Example: setNegativeResultsModeBoxGraph(false)
+export function setNegativeResultsModeBoxGraph(flag) {
+    negativeResultsMode = flag;
+}
+
 // Description: Clears the boxGraph of drawings
 function clear() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -104,7 +115,12 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     let leftBarHeight = (1-pEH) * CANVAS_HEIGHT;
     let leftBarWidth = pH * CANVAS_WIDTH;
     
-    ctx.fillStyle = LEFT_BAR_COLOR;
+    if (negativeResultsMode) {
+        ctx.fillStyle = LEFT_BAR_COLOR_DESATURATED;
+    }
+    else {
+        ctx.fillStyle = LEFT_BAR_COLOR;
+    }
     ctx.fillRect(0, leftBarHeight, leftBarWidth, CANVAS_HEIGHT);
     
     // Draw the left bar height line
@@ -120,7 +136,12 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     let rightBarHeight = (1-pENotH) * CANVAS_HEIGHT;
     let rightBarWidth = pH * CANVAS_WIDTH;
     
-    ctx.fillStyle = RIGHT_BAR_COLOR;
+    if (negativeResultsMode) {
+        ctx.fillStyle = RIGHT_BAR_COLOR_DESATURATED;
+    }
+    else {
+        ctx.fillStyle = RIGHT_BAR_COLOR;
+    }
     ctx.fillRect(rightBarWidth, rightBarHeight, CANVAS_WIDTH, CANVAS_HEIGHT);
     
     // Draw the right bar height line

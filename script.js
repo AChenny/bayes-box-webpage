@@ -1,6 +1,6 @@
 // Import constants 
 import * as constants from './constants.js';
-import { updateBoxGraphValues, setEstimatorModeBoxGraph } from './boxGraph/main.js';
+import { updateBoxGraphValues, setEstimatorModeBoxGraph, setNegativeResultsModeBoxGraph} from './boxGraph/main.js';
 
 // Global Variables
 var pEH = 0.500;
@@ -166,7 +166,6 @@ $(document).ready(function() {
         $('#box1').blur()
         $('#box2').blur()
         $('#box3').blur()
-
         updateFormula(pEH, pENotH, pH)
     }
   });
@@ -186,6 +185,11 @@ $(document).ready(function() {
 });
 $(function() {
   $('#buttons_negative_results_switch').change(function() {
-    alert('This button is under construction.');
+    if ($(this).prop('checked')) {
+      setNegativeResultsModeBoxGraph(true);
+    }
+    else {
+      setNegativeResultsModeBoxGraph(false);
+    }
   });
 })
