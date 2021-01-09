@@ -185,7 +185,7 @@ $(document).ready(function() {
   })
 });
 $(function() {
-  $('#negative_result_mode_toggle_switch').change(function() {
+  $('#buttons_negative_results_switch').change(function() {
     alert('This button is under construction.');
   });
 })
