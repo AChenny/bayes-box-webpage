@@ -171,7 +171,7 @@
           <div class="container-fluid" id="buttons_negative_results_container">
             <div class="row buttons-md-font">
               <div class="col-md-3" id="buttons_negative_results_positive_label_column">
-                <p><b><i>P</i></b>(E<b>|</b>H)</p>
+                <p><b><i>P</i></b>(H<b>|</b>E)</p>
               </div>
               <div class="col-md-4">
                 <label class="switch" id="buttons_negative_results_switch_label">
@@ -180,7 +180,7 @@
                 </label>
               </div>
               <div class="col-md-5" id="buttons_negative_results_negative_label_column">
-                <p><b><i>P</i></b>(E<b>|</b>&not;H)</p>
+                <p><b><i>P</i></b>(H<b>|</b>&not;E)</p>
               </div>
             </div>
           </div>
@@ -223,6 +223,9 @@
         <div class="col" id="barGraph">
           <div id='verticalRulerLeftContainer'>
             <div id='verticalRulerLeftTop'>
+              <div id='verticalRulerLeftTopText'>
+                <p>(E<b>|</b>H)</p>
+              </div>
             </div>
             <div id='verticalRulerLeftBottom'>
               <div id='verticalRulerLeftText'>
@@ -232,7 +235,11 @@
           </div>
           <canvas id=boxGraph width=800 height=450></canvas>
           <div id='verticalRulerRightContainer'>
-            <div id='verticalRulerRightTop'></div>
+            <div id='verticalRulerRightTop'>
+              <div id='verticalRulerRightTopText'>
+                <p>(E<b>|</b>&not;H)</p>
+              </div>
+            </div>
             <div id='verticalRulerRightBottom'>
               <div id='verticalRulerRightText'>
                 <p>(E<b>|</b>&not;H)</p>

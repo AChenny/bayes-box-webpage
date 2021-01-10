@@ -26,9 +26,12 @@ const RIGHT_BAR_COLOR_DESATURATED = '#c890ff';
 
 const LEFT_BAR_LINE_THICKNESS = 4;
 const RIGHT_BAR_LINE_THICKNESS = 4;
+const NEGATIVE_RESULTS_BAR_LINE_THICKNESS = 6;
 
 const LEFT_BAR_LINE_COLOR = '#000000'
 const RIGHT_BAR_LINE_COLOR = '#000000'
+const DESATURATED_BAR_LINE_COLOR = '#A9A9A9'
+const NEGATIVE_RESULTS_BAR_LINE_COLOR = '#000000'
 
 const MIDDLE_BAR_LINE_THICKNESS = 4;
 const MIDDLE_BAR_LINE_COLOR = '#B22222';
@@ -58,7 +61,7 @@ function update() {
     clear();
     drawBoxGraph(pEH, pENotH, pH);
     rulers.updateRulers(pEH, pENotH, pH);
-    if (!estimatorMode) {
+    if (!estimatorMode && !negativeResultsMode) {
         drawBoxText(pEH, pENotH, pH);
     }
     drawBorder();
@@ -124,7 +127,12 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.fillRect(0, leftBarHeight, leftBarWidth, CANVAS_HEIGHT);
     
     // Draw the left bar height line
-    ctx.strokeStyle = LEFT_BAR_LINE_COLOR;
+    if (negativeResultsMode) {
+        ctx.strokeStyle = DESATURATED_BAR_LINE_COLOR;
+    }
+    else {
+        ctx.strokeStyle = LEFT_BAR_LINE_COLOR;
+    }
     ctx.lineWidth = LEFT_BAR_LINE_THICKNESS;
     ctx.beginPath();
     ctx.moveTo(0, leftBarHeight);
@@ -145,7 +153,12 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.fillRect(rightBarWidth, rightBarHeight, CANVAS_WIDTH, CANVAS_HEIGHT);
     
     // Draw the right bar height line
-    ctx.strokeStyle = RIGHT_BAR_LINE_COLOR;
+    if (negativeResultsMode) {
+        ctx.strokeStyle = DESATURATED_BAR_LINE_COLOR;
+    }
+    else {
+        ctx.strokeStyle = RIGHT_BAR_LINE_COLOR;
+    }
     ctx.lineWidth = RIGHT_BAR_LINE_THICKNESS;
     ctx.beginPath();
     ctx.moveTo(rightBarWidth, rightBarHeight);
@@ -162,6 +175,17 @@ function drawBoxGraph(pEH=0.5, pENotH=0.5, pH=0.5) {
     ctx.lineTo(middleLineX, CANVAS_HEIGHT);
     ctx.stroke();
     middleX = middleLineX;
+
+    // Negative results border
+    if (negativeResultsMode) {
+        ctx.strokeStyle = NEGATIVE_RESULTS_BAR_LINE_COLOR;
+        ctx.lineWidth = NEGATIVE_RESULTS_BAR_LINE_THICKNESS;
+        ctx.beginPath();
+        ctx.rect(0, 0, middleX-MIDDLE_BAR_LINE_THICKNESS, leftBarHeight);
+        ctx.stroke();
+
+        // Ruler changes
+    }
 }
 
 // Description: Draws the graph percentages inside the bar graphs
@@ -202,6 +226,33 @@ function resetDragState() {
     leftBarDrag = false;
     rightBarDrag = false;
     middleLineDrag = false;
+}
+
+// Description: Flips the rulers to positive results mode or negative results mode
+// Input: Boolean
+// Output: None
+export function setNegativeResultsRuler(flag) {
+    // Negative results mode is on, set the rulers to P(H|E)
+    if (flag) {
+        // Hide the positive rulers
+        $('#verticalRulerLeftBottom').css('visibility', 'hidden');
+        $('#verticalRulerRightBottom').css('visibility', 'hidden');
+
+        // Show the negative rulers
+        $('#verticalRulerLeftTop').css('visibility', 'visible');
+        $('#verticalRulerRightTop').css('visibility', 'visible');
+
+
+    }
+    else {
+        // Hide the negative rulers
+        $('#verticalRulerLeftTop').css('visibility', 'hidden');
+        $('#verticalRulerRightTop').css('visibility', 'hidden');
+        
+        // Show the positive rulers
+        $('#verticalRulerLeftBottom').css('visibility', 'visible');
+        $('#verticalRulerRightBottom').css('visibility', 'visible');
+    }
 }
 
 canvas.addEventListener('mousemove', function() {

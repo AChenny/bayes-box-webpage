@@ -34,7 +34,16 @@ div#barGraph{
 }
 
 #verticalRulerLeftTop {
-  
+  visibility: hidden;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+#verticalRulerLeftTopText {
+  position: relative;
+  right: 50px;
+  top: 50%;
 }
 
 #verticalRulerLeftBottom {
@@ -42,6 +51,20 @@ div#barGraph{
   border-bottom: 1px solid black;
   border-left: 1px solid black;
   height: 50%;
+}
+
+#verticalRulerRightTop {
+  visibility: hidden;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+#verticalRulerRightTopText {
+  position: relative;
+  left: 30px;
+  width: 60px;
+  top: 50%;
 }
 
 #verticalRulerRightBottom {

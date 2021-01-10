@@ -1,6 +1,6 @@
 // Import constants 
 import * as constants from './constants.js';
-import { updateBoxGraphValues, setEstimatorModeBoxGraph, setNegativeResultsModeBoxGraph} from './boxGraph/main.js';
+import { updateBoxGraphValues, setEstimatorModeBoxGraph, setNegativeResultsModeBoxGraph, setNegativeResultsRuler} from './boxGraph/main.js';
 
 // Global Variables
 var pEH = 0.500;
@@ -187,9 +187,11 @@ $(function() {
   $('#buttons_negative_results_switch').change(function() {
     if ($(this).prop('checked')) {
       setNegativeResultsModeBoxGraph(true);
+      setNegativeResultsRuler(true);
     }
     else {
       setNegativeResultsModeBoxGraph(false);
+      setNegativeResultsRuler(false);
     }
   });
 })
