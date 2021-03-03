@@ -76,6 +76,15 @@ function toggleVisualEstimator(toggleOn) {
   }
 }
 
+// state: true for on, false for off
+function setNegativeResultsMode(state) {
+  setNegativeResultsModeBoxGraph(state);
+  setNegativeResultsRuler(state);
+  // Ensure button switch is also changed to correct position
+  let random_button = document.getElementById('buttons_negative_results_switch');
+  random_button.checked = state;
+}
+
 function randomizeButton() {
   pEH = parseFloat(Math.random(1000).toFixed(3));
   pH = parseFloat(Math.random(1000).toFixed(3));
@@ -83,6 +92,9 @@ function randomizeButton() {
   updateFormula(pEH, pENotH, pH);
   _updateLights(pEH, pENotH, pH)
   updateBoxGraphValues(pEH, pENotH, pH);
+  // randomize lights negative results mode as well
+  setNegativeResultsMode(Math.random() < 0.5);
+  
 }
 
 // Description: Updates the Evidence strength, prior probability, and updated probability saturation
@@ -185,13 +197,6 @@ $(document).ready(function() {
 });
 $(function() {
   $('#buttons_negative_results_switch').change(function() {
-    if ($(this).prop('checked')) {
-      setNegativeResultsModeBoxGraph(true);
-      setNegativeResultsRuler(true);
-    }
-    else {
-      setNegativeResultsModeBoxGraph(false);
-      setNegativeResultsRuler(false);
-    }
+    setNegativeResultsMode($(this).prop('checked'));
   });
 })
