@@ -228,11 +228,29 @@ function resetDragState() {
     middleLineDrag = false;
 }
 
+// Description: Changes all instances of E (evidence) to the negative
+// Input: state ? true (turn to E): false (turn to NOT-E)
+function change_e_to_not_e (state){
+    let e_text;
+    e_text = state ? "&not;E" :"E";
+    // Change text in evidence strength text
+    $('#buttons_evidence_strength_formula_numerator').html(`<b><i>P</i></b>(${e_text}<b>|</b>H)`);
+    $('#buttons_evidence_strength_formula_denominator').html(`<b><i>P</i></b>(${e_text}<b>|</b>&not;H)`);
+
+    // Change text in Formula
+    $('#formula_phe_text').html(`<p><b><i>P</i></b>(H<b>|</b>${e_text})</p>`);
+    $('#formula_peh_top_text').html(`<b><i>P</i></b>(${e_text}<b>|</b>H)`);
+    $('#formula_peh_bottom_text').html(`<b><i>P</i></b>(${e_text}<b>|</b>H)`);
+    $('#formula_p_not_h_bottom_text').html(`<b><i>P</i></b>(${e_text}<b>|</b>&not;H)`);
+
+}
+
 // Description: Flips the rulers to positive results mode or negative results mode
 // Input: Boolean
 // Output: None
 export function setNegativeResultsRuler(flag) {
     // Negative results mode is on, set the rulers to P(H|E)
+    change_e_to_not_e(flag);
     if (flag) {
         // Hide the positive rulers
         $('#verticalRulerLeftBottom').css('visibility', 'hidden');
@@ -241,7 +259,6 @@ export function setNegativeResultsRuler(flag) {
         // Show the negative rulers
         $('#verticalRulerLeftTop').css('visibility', 'visible');
         $('#verticalRulerRightTop').css('visibility', 'visible');
-
 
     }
     else {

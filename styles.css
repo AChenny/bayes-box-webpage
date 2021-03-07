@@ -42,7 +42,7 @@ div#barGraph{
 
 #verticalRulerLeftTopText {
   position: relative;
-  right: 50px;
+  right: 60px;
   top: 50%;
 }
 
@@ -63,7 +63,7 @@ div#barGraph{
 #verticalRulerRightTopText {
   position: relative;
   left: 30px;
-  width: 60px;
+  width: 80px;
   top: 50%;
 }
 

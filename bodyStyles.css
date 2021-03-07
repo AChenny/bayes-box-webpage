@@ -68,6 +68,10 @@ p {
     position: relative;
     font-size: 20pt;
     margin-top: 20px;
+    white-space: nowrap;
+}
+#formula_p_not_h_bottom_text {
+    padding-right: 0;
 }
 
 #formula_phe_variable {
@@ -106,7 +110,7 @@ p {
 /* Button styles */
 #buttons-container {
     border: 1px solid black;
-    height: 80px;
+    height: 70px;
 }
 
 .buttons-md-font {
@@ -131,6 +135,8 @@ p {
 
 #buttons_evidence_strength_formula {
     margin-top: 13px;
+    align-items: center;
+    padding: 0;
 }
 
 #buttons_evidence_strength_formula p{
@@ -139,6 +145,11 @@ p {
 
 #buttons_formula_bottom_division {
     margin-left: -8px;
+    /* margin-left:  auto; */
+    /* margin-right:  auto; */
+}
+#buttons_evidence_strength_formula_denominator {
+    width: 100%;
 }
 
 #buttons_negative_results_container {

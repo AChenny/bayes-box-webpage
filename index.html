@@ -53,7 +53,7 @@
                         <div class="col-md-5"><input type="text" name="box2" id="box2" value="0.500" size="3"></div>
                       </div>
                       <div class="row">
-                        <div class="col-md-5"><b><i>P</i></b>(E<b>|</b>H)</div>
+                        <div id="formula_peh_top_text" class="col-md-5"><b><i>P</i></b>(E<b>|</b>H)</div>
                         <div class="col-md-1 no-padding">&times;</div>
                         <div class="col-md-5"><b><i>P</i></b>(H)</div>
                       </div>
@@ -76,7 +76,7 @@
               <div class="col-md-5">
                 <div class="container-fluid green-results-background-color">
                   <div class="row">
-                    <div class="col-md-5"><b><i>P</i></b>(E<b>|</b>H)</div>
+                    <div class="col-md-5" id="formula_peh_bottom_text"><b><i>P</i></b>(E<b>|</b>H)</div>
                     <div class="col-md-1 no-padding">&times;</div>
                     <div class="col-md-5"><b><i>P</i></b>(H)</div>
                   </div>
@@ -97,7 +97,7 @@
               <div class="col-md-5">
                 <div class="container-fluid blue-results-background-color">
                   <div class="row">
-                    <div class="col-md-5"><b><i>P</i></b>(E<b>|</b>&not;H)</div>
+                    <div class="col-md-5" id="formula_p_not_h_bottom_text"><b><i>P</i></b>(E<b>|</b>&not;H)</div>
                     <div class="col-md-1">&times;</div>
                     <div class="col-md-5"><b><i>P</i></b>(&not;H)</div>
                   </div>
@@ -146,14 +146,14 @@
                 <div class="container-fluid">
                   <div class="row ">
                     <div class="col no-padding">
-                      <p>
+                      <p id="buttons_evidence_strength_formula_numerator">
                         <b><i>P</i></b>(E<b>|</b>H)
                       </p>
                     </div>
                   </div>
                   <div class="row division_line"></div>
                   <div class="row" id="buttons_formula_bottom_division">
-                    <p>
+                    <p id="buttons_evidence_strength_formula_denominator">
                       <b><i>P</i></b>(E<b>|</b>&not;H)
                     </p>
                   </div>
@@ -224,7 +224,7 @@
           <div id='verticalRulerLeftContainer'>
             <div id='verticalRulerLeftTop'>
               <div id='verticalRulerLeftTopText'>
-                <p>(E<b>|</b>H)</p>
+                <p>(&not;E<b>|</b>H)</p>
               </div>
             </div>
             <div id='verticalRulerLeftBottom'>
@@ -237,7 +237,7 @@
           <div id='verticalRulerRightContainer'>
             <div id='verticalRulerRightTop'>
               <div id='verticalRulerRightTopText'>
-                <p>(E<b>|</b>&not;H)</p>
+                <p>(&not;E<b>|</b>&not;H)</p>
               </div>
             </div>
             <div id='verticalRulerRightBottom'>
