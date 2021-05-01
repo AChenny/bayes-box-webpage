@@ -1,6 +1,6 @@
 import * as rulers from "./rulers.js";
 import * as interactivity from './interactivity.js';
-import { updateValues } from '../script.js';
+import { updateValues } from './script.js';
 
 const CANVAS_BORDER_THICKNESS = 8;
 const CANVAS_BORDER_COLOR = '#000000';
