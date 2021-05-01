@@ -1,5 +1,5 @@
-import * as rulers from "./boxGraph/rulers.js";
-import * as interactivity from './boxGraph/interactivity.js';
+import * as rulers from "./rulers.js";
+import * as interactivity from './interactivity.js';
 import { updateValues } from '../script.js';
 
 const CANVAS_BORDER_THICKNESS = 8;
