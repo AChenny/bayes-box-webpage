@@ -1,7 +1,7 @@
 // Import constants 
 import * as constants from './constants.js';
 // import { updateBoxGraphValues, setEstimatorModeBoxGraph, setNegativeResultsModeBoxGraph, setNegativeResultsRuler} from './boxGraph/main.js';
-import BarGraph from "/BarGraph.js";
+import BarGraph from "./BarGraph.js";
 
 // Global Variables
 var pEH = 0.500;
