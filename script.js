@@ -171,7 +171,7 @@ function updateLights(pEH, pENotH, pH) {
     // Change the brightness of the evidence strength light on probability change
     let evidenceStrengthCalculation;
     if (negative_results_mode) {
-        evidenceStrengthCalculation = (1-pEH) / pENotH;
+        evidenceStrengthCalculation = (1-pEH) / (1-pENotH);
     }
     else {
         evidenceStrengthCalculation = pEH / pENotH;
