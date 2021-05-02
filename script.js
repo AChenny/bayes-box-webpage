@@ -24,6 +24,7 @@ export function updateValues(_pEH, _pENotH, _pH) {
 
     updateFormula(pEH, pENotH, pH);
     updateLights(pEH, pENotH, pH);
+    barGraph.drawBoxGraph(pEH, pENotH, pH);
 }
 
 function updateFormula(pEH, pENotH, pH) {
@@ -66,9 +67,6 @@ function updateFormula(pEH, pENotH, pH) {
     var formVar2 = document.getElementById('formVar2');
     var pHE = (form_pEH * pH) / ((form_pEH * pH) + (form_pENotH * (1 - pH)));
     formVar2.innerHTML = pHE.toFixed(3);
-
-    // Update the box graph values
-    // barGraph.updateBoxGraphValues(pEH, pENotH, pH);
 }
 
 function toggleVisualEstimator(toggleOn) {
@@ -218,7 +216,12 @@ $(document).ready(function () {
             $('#box1').blur()
             $('#box2').blur()
             $('#box3').blur()
-            updateFormula(pEH, pENotH, pH)
+
+            if (negative_results_mode) {
+                pEH = 1 - pEH;
+                pENotH = 1 - pENotH;
+            }
+            updateValues(pEH, pENotH, pH)
         }
     });
 

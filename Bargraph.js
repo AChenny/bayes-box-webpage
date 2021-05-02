@@ -52,18 +52,6 @@ export default class BarGraph {
         this.middleX = 0;
     }
 
-    update() {
-        clear();
-        drawBoxGraph(pEH, pENotH, pH);
-        rulers.updateRulers(pEH, pENotH, pH);
-        if (!this.estimator_mode && !this.negative_results_mode) {
-            this.drawBoxText(pEH, pENotH, pH);
-        }
-        this.drawBorder();
-        
-        // requestAnimationFrame(update);
-    }
-
     // Description: Clears the boxGraph of drawings
     clear() {
         this.ctx.clearRect(0, 0, this.canvas_width, this.canvas_height);
@@ -158,8 +146,6 @@ export default class BarGraph {
             this.drawBoxText(pEH, pENotH, pH);
         }
         rulers.updateRulers(pEH, pENotH, pH);
-        
-        updateValues(pEH, pENotH, pH);
     }
 
     // Description: Draws the graph percentages inside the bar graphs
@@ -257,14 +243,17 @@ export default class BarGraph {
         if (this.left_bar_drag) {
             pEH = interactivity.handleVerticalBarDrag(event);
             this.drawBoxGraph(pEH, pENotH, pH);
+            updateValues(pEH, pENotH, pH);
         }
         if (this.right_bar_drag) {
             pENotH = interactivity.handleVerticalBarDrag(event);
             this.drawBoxGraph(pEH, pENotH, pH);
+            updateValues(pEH, pENotH, pH);
         }
         if (this.middle_line_drag) {
             pH = interactivity.handleHorizontalLineDrag(event);
             this.drawBoxGraph(pEH, pENotH, pH);
+            updateValues(pEH, pENotH, pH);
         }
     }
 
