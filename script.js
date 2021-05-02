@@ -103,6 +103,31 @@ function setNegativeResultsMode(state) {
     // Ensure button switch is also changed to correct position
     let random_button = document.getElementById('buttons_negative_results_switch');
     random_button.checked = state;
+
+    // Change formula colors
+    let formula_top_container = document.getElementById('formula_peh_top_container');
+    let formula_peh_bottom_container = document.getElementById('formula_peh_bottom_container');
+    let formula_p_e_not_h = document.getElementById('formula_p_not_h_container');
+
+    
+    if (state) {
+        formula_top_container.classList.remove("green-results-background-color");
+        formula_top_container.classList.add("results-dark-border");
+        formula_peh_bottom_container.classList.remove("green-results-background-color");
+        formula_peh_bottom_container.classList.add("results-dark-border");
+
+        formula_p_e_not_h.classList.remove("blue-results-background-color")
+        formula_p_e_not_h.classList.add("results-light-border")
+    }
+    else {
+        formula_top_container.classList.add("green-results-background-color");
+        formula_top_container.classList.remove("results-dark-border");
+        formula_peh_bottom_container.classList.add("green-results-background-color");
+        formula_peh_bottom_container.classList.remove("results-dark-border");
+
+        formula_p_e_not_h.classList.add("blue-results-background-color")
+        formula_p_e_not_h.classList.remove("results-light-border")
+    }
     
     // Change the values shown in the formula
     updateFormula(pEH, pENotH, pH);
