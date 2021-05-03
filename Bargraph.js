@@ -145,40 +145,73 @@ export default class BarGraph {
 
         }
         this.drawBorder();
-        if (!this.negative_results_mode) {
-            this.drawBoxText(pEH, pENotH, pH);
-        }
+        this.drawBoxText(pEH, pENotH, pH);
         rulers.updateRulers(pEH, pENotH, pH);
     }
 
     // Description: Draws the graph percentages inside the bar graphs
     // Input: Input: P(E|H) floating point value, P(E|Not-H) floating point value, P(H) floating point value
     drawBoxText(pEH=0.5, pENotH=0.5, pH=0.5) {
-        let pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
+        let pHE;
+        
+        if (this.negative_results_mode) {
+            pHE = (((1-pEH) * pH)/(((1-pEH) * pH) + ((1-pENotH) * (1 - pH)))).toFixed(3);
+        }
+        else {
+            pHE = ((pEH * pH)/((pEH * pH) + (pENotH * (1 - pH)))).toFixed(3);
+        }
         
         let leftBarFontSize = LEFT_BOX_FONT_MAX_SIZE;
         let rightBarFontSize =  RIGHT_BOX_FONT_MAX_SIZE;
-        // Check left bar size
-        if (pEH < 0.15 || pH < 0.15) {
-            // Take the smaller size font and set it as that
-            let percentageFont = Math.min((pEH * 6.66), (pH * 6.66));
-            leftBarFontSize = (percentageFont * LEFT_BOX_FONT_MAX_SIZE).toFixed(0);
-        } 
-        if (pENotH < 0.15 || pH > 0.85) {
-            // Take the smaller size font and set it as that
-            let percentageFont = Math.min((pENotH * 6.66), ((1-pH) * 6.66));
-            rightBarFontSize = (percentageFont * RIGHT_BOX_FONT_MAX_SIZE).toFixed(0);
+        
+        // Change the size of the font depending on the bounds of the percentages for Y
+        if (this.negative_results_mode) {
+            if (pEH > 0.85 || pH < 0.15) {
+                // Take the smaller size font and set it as that
+                let percentageFont = Math.min(((1-pEH) * 6.66), (pH * 6.66));
+                leftBarFontSize = (percentageFont * LEFT_BOX_FONT_MAX_SIZE).toFixed(0);
+            } 
+            if (pENotH > 0.85 || pH > 0.85) {
+                // Take the smaller size font and set it as that
+                let percentageFont = Math.min(((1-pENotH) * 6.66), ((1-pH) * 6.66));
+                rightBarFontSize = (percentageFont * RIGHT_BOX_FONT_MAX_SIZE).toFixed(0);
+            }
         }
+        else {
+            if (pEH < 0.15 || pH < 0.15) {
+                // Take the smaller size font and set it as that
+                let percentageFont = Math.min((pEH * 6.66), (pH * 6.66));
+                leftBarFontSize = (percentageFont * LEFT_BOX_FONT_MAX_SIZE).toFixed(0);
+            } 
+            if (pENotH < 0.15 || pH > 0.85) {
+                // Take the smaller size font and set it as that
+                let percentageFont = Math.min((pENotH * 6.66), ((1-pH) * 6.66));
+                rightBarFontSize = (percentageFont * RIGHT_BOX_FONT_MAX_SIZE).toFixed(0);
+            }
+        }
+
         
         // Add the text to the middle of the boxes
         let leftBarTextCoordsX = (((this.middleX-BOX_FONT_BUFFER) / 2)).toFixed(0);
-        let leftBarTextCoordsY = ((this.canvas_height + this.leftY) / 2).toFixed(0);
+        let leftBarTextCoordsY;
+        if (this.negative_results_mode) {
+            leftBarTextCoordsY = (this.leftY / 2).toFixed(0);
+        }
+        else {
+            leftBarTextCoordsY = ((this.canvas_height + this.leftY) / 2).toFixed(0);
+        }
         this.ctx.fillStyle = BOX_FONT_DEFAULT_COLOR;
         this.ctx.font = BOX_FONT_DEFAULT_WEIGHT + ' ' + leftBarFontSize + 'pt ' +  BOX_FONT_DEFAULT_STYLE;
         this.ctx.fillText(pHE, leftBarTextCoordsX, leftBarTextCoordsY);
 
         let rightBarTextCoordsX = (((this.middleX + this.canvas_width) - BOX_FONT_BUFFER)/2).toFixed(0);
-        let rightBarTextCoordsY = ((this.canvas_height + this.rightY) / 2).toFixed(0);
+        let rightBarTextCoordsY;
+        if (this.negative_results_mode) {
+            rightBarTextCoordsY = (this.rightY / 2).toFixed(0);
+        }
+        else {
+            rightBarTextCoordsY = ((this.canvas_height + this.rightY) / 2).toFixed(0);
+        }
         this.ctx.fillStyle = BOX_FONT_DEFAULT_COLOR;
         this.ctx.font = rightBarFontSize + 'pt ' + BOX_FONT_DEFAULT_STYLE + ' '; 
         this.ctx.fillText((1-pHE).toFixed(3), rightBarTextCoordsX, rightBarTextCoordsY);
