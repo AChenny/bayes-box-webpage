@@ -1,6 +1,5 @@
 // Import constants 
 import * as constants from './constants.js';
-// import { updateBoxGraphValues, setEstimatorModeBoxGraph, setNegativeResultsModeBoxGraph, setNegativeResultsRuler} from './boxGraph/main.js';
 import BarGraph from "./Bargraph.js";
 
 // Global Variables
@@ -254,11 +253,9 @@ $(document).ready(function () {
         $('#buttons_estimator_switch').change(function () {
             if ($(this).prop('checked')) {
                 toggleVisualEstimator(1);
-                setEstimatorModeBoxGraph(true);
             }
             else {
                 toggleVisualEstimator(0);
-                setEstimatorModeBoxGraph(false);
             }
         })
     })
