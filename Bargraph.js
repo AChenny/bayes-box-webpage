@@ -12,11 +12,12 @@ const RIGHT_BAR_COLOR_DESATURATED = '#A5E9FF';
 
 const LEFT_BAR_LINE_THICKNESS = 4;
 const RIGHT_BAR_LINE_THICKNESS = 4;
+const RIGHT_BAR_LINE_DESATURATED_THICKNESS = 2;
 const NEGATIVE_RESULTS_BAR_LINE_THICKNESS = 6;
 
 const LEFT_BAR_LINE_COLOR = '#000000'
 const RIGHT_BAR_LINE_COLOR = '#000000'
-const DESATURATED_BAR_LINE_COLOR = '#A9A9A9'
+const DESATURATED_BAR_LINE_COLOR = '#000000'
 const NEGATIVE_RESULTS_BAR_LINE_COLOR = '#000000'
 
 const MIDDLE_BAR_LINE_THICKNESS = 4;
@@ -111,11 +112,13 @@ export default class BarGraph {
         // Draw the right bar height line
         if (this.negative_results_mode) {
             this.ctx.strokeStyle = DESATURATED_BAR_LINE_COLOR;
+            this.ctx.lineWidth = RIGHT_BAR_LINE_DESATURATED_THICKNESS;
         }
         else {
             this.ctx.strokeStyle = RIGHT_BAR_LINE_COLOR;
+            this.ctx.lineWidth = RIGHT_BAR_LINE_THICKNESS;
         }
-        this.ctx.lineWidth = RIGHT_BAR_LINE_THICKNESS;
+
         this.ctx.beginPath();
         this.ctx.moveTo(rightBarWidth, rightBarHeight);
         this.ctx.lineTo(this.canvas_width, rightBarHeight);

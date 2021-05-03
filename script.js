@@ -204,7 +204,7 @@ function updateLights(pEH, pENotH, pH) {
         $('#believe_confirmation_evidence_strength_value_span').text(evidenceStrengthCalculation.toFixed(2));
     }
     else {
-        $('#believe_confirmation_evidence_strength_value_span').text('Maximum');
+        $('#believe_confirmation_evidence_strength_value_span').text('Max');
     }
 
     let confirmationRHex = rgbToHex(parseInt(144));
