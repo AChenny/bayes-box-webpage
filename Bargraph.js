@@ -145,7 +145,9 @@ export default class BarGraph {
 
         }
         this.drawBorder();
-        this.drawBoxText(pEH, pENotH, pH);
+        if (!this.estimator_mode) {
+            this.drawBoxText(pEH, pENotH, pH);
+        }
         rulers.updateRulers(pEH, pENotH, pH);
     }
 
@@ -189,7 +191,6 @@ export default class BarGraph {
                 rightBarFontSize = (percentageFont * RIGHT_BOX_FONT_MAX_SIZE).toFixed(0);
             }
         }
-
         
         // Add the text to the middle of the boxes
         let leftBarTextCoordsX = (((this.middleX-BOX_FONT_BUFFER) / 2)).toFixed(0);
@@ -271,7 +272,10 @@ export default class BarGraph {
     setNegativeResultsModeBoxGraph(flag) {
         this.negative_results_mode = flag;
     }
-    
+
+    setEstimatorMode(flag) {
+        this.estimator_mode = flag;
+    }
 
     handleCanvasMove(event, pEH, pENotH, pH) {
         // Handle changing the cursor

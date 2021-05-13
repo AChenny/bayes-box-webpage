@@ -69,6 +69,7 @@ function updateFormula(pEH, pENotH, pH) {
 }
 
 function toggleVisualEstimator(toggleOn) {
+    barGraph.setEstimatorMode(toggleOn);
     if (toggleOn) {
         $('#formVar1').hide();
         $('#formVar2').hide();
@@ -78,7 +79,6 @@ function toggleVisualEstimator(toggleOn) {
         $('#box3').css('color', '#FFFFFF');
         $('#equation_values_denominator_peh').hide();
         $('#equation_values_denominator_ph').hide();
-
     }
     else {
         $('#formVar1').show();
@@ -143,7 +143,6 @@ function randomizeButton() {
     barGraph.drawBoxGraph(pEH, pENotH, pH);
     // randomize lights negative results mode as well
     setNegativeResultsMode(Math.random() < 0.5);
-
 }
 
 // Description: Updates the Evidence strength, prior probability, and updated probability saturation
@@ -245,7 +244,7 @@ $(document).ready(function () {
                 pEH = 1 - pEH;
                 pENotH = 1 - pENotH;
             }
-            updateValues(pEH, pENotH, pH)
+            updateValues(pEH, pENotH, pH);
         }
     });
 
@@ -257,6 +256,7 @@ $(document).ready(function () {
             else {
                 toggleVisualEstimator(0);
             }
+            updateValues(pEH, pENotH, pH)
         })
     })
 });
