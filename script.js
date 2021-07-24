@@ -61,6 +61,7 @@ function updateFormula(pEH, pENotH, pH) {
 
     //Update formula text 1 P(NOT-H)
     var formVar1 = document.getElementById('formVar1');
+    console.log(1- pH)
     formVar1.innerHTML = (1 - pH).toFixed(3);
     //update var2
     var formVar2 = document.getElementById('formVar2');
